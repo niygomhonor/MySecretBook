@@ -9,11 +9,20 @@ tools:context=".MainActivity">
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="Make your day fun as you wish"
-    android:id="@+id/myWholeDay"
-
+    android:id="@+id/myDayFeeling"
     android:layout_centerHorizontal="true" />
 
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dayEditText"
+
+        android:layout_above="@+id/saveButton"
+        android:layout_marginBottom="20dp"
+        android:padding="8dp"
+        android:hint="Write about your day!"
+        android:layout_centerHorizontal="true" />
 
 <ImageView
     android:layout_width="wrap_content"
@@ -21,4 +30,6 @@ tools:context=".MainActivity">
     android:id="@+id/imageView"
 
     android:scaleType="centerCrop" />
+
+
 </RelativeLayout>
