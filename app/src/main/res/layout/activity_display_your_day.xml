@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:text="Thanks Lord For To Day!"
         android:textColor="@color/colorHeader"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:fontFamily="sans-serif-condensed"/>
@@ -30,7 +30,7 @@
         android:layout_below="@id/displayDayDate"
         android:layout_marginTop="150dp"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:layout_alignParentTop="true"
