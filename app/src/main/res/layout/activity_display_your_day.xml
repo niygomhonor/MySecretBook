@@ -12,26 +12,39 @@
         android:id="@+id/imageView"
         android:src="@drawable/dis"
         android:scaleType="centerCrop" />
+    <TextView
+        android:id="@+id/displayDayHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thanks Lord For To Day!"
+        android:textColor="@color/colorHeader"
+        android:textSize="40sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif-condensed"/>
 
     <TextView
         android:id="@+id/displayDayTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Thanks Lord For To Day"
         android:layout_below="@id/displayDayDate"
-        android:layout_marginTop="40dp"
-        android:textColor="@color/colorHeader"
+        android:layout_marginTop="150dp"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="40sp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:fontFamily="sans-serif-condensed-light"/>
+
     <TextView
         android:id="@+id/displayDayDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+android:layout_marginTop="100dp"
         android:textColor="@color/colorHeader"
         android:textSize="20sp"
+        android:layout_below="@+id/displayDayHeader"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:fontFamily="sans-serif-condensed-light"/>

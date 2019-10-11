@@ -4,12 +4,16 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/diaryicon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/diaryicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DisplayYourDay"></activity>
+        <activity android:name=".DisplayYourDay">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.noteyourday.DisplayYourDay" />
+        </activity>
         <activity android:name=".MyDays">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

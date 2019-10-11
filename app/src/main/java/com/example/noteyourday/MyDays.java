@@ -3,6 +3,7 @@ package com.example.noteyourday;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +25,7 @@ public class MyDays extends AppCompatActivity {
         writeYourDay = (EditText) findViewById(R.id.dayEditText);
         pageHeader = (TextView) findViewById(R.id.pageHeading);
         saveWritings = (Button) findViewById(R.id.saveButton);
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "font/delighter.otf");
         saveWritings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

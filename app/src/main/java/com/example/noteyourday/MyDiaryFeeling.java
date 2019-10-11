@@ -41,34 +41,21 @@ public class MyDiaryFeeling extends AppCompatActivity {
         Intent day = getIntent();
         String myDay = day.getStringExtra("myDay");
         MyDaysAdapter daysAdapter = new MyDaysAdapter(this, android.R.layout.simple_list_item_1, dayFeelings);
-        Toast.makeText(this, ""+dayFeelings, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, ""+dayFeelings, Toast.LENGTH_SHORT).show();
         feelView.setAdapter(daysAdapter);
         feelView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String feelings = ((TextView) view).getText().toString();
-                Toast.makeText(MyDiaryFeeling.this, feelings, Toast.LENGTH_LONG).show();
+//                Toast.makeText(MyDiaryFeeling.this, feelings, Toast.LENGTH_LONG).show();
                 Intent dayFeel=new Intent(MyDiaryFeeling.this,MyDays.class);
 //                feelingsOfDay.setText(feelings);
                 startActivity(dayFeel);
 
             }
         });
-//        feelingsOfDay.setText(myDay);
+
     }
 
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_my_diary);
-//        dayEdit=(EditText) findViewById(R.id.dayEditText);
-//        myDayFeelings=(TextView) findViewById(R.id.myDayFeeling);
-//        Intent day =getIntent();
-//        String myDay=day.getStringExtra("myDay");
-////        ButterKnife.bind(this);
-//        Toast.makeText(MyDiaryFeeling.this,myDay,Toast.LENGTH_LONG).show();
-//
-//        Toast.makeText(this, "Hello"+day, Toast.LENGTH_LONG).show();
-//        myDayFeelings.setText("My Day:"+ myDay);
-//    }
+
 }

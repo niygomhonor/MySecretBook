@@ -3,6 +3,7 @@ package com.example.noteyourday;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 
@@ -13,7 +14,8 @@ import butterknife.ButterKnife;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-@BindView(R.id.startButton) Button startButton;
+    @BindView(R.id.startButton)
+    Button startButton;
 
 //    private Button startButton;
 
@@ -27,11 +29,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ButterKnife.bind(this);
         startButton.setOnClickListener(this);
-
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "font/delighter.otf");
 
 
 //        feelingsOfDay.setText(myDay);
     }
+
     @Override
     public void onClick(View v) {
 

@@ -3,6 +3,7 @@ package com.example.noteyourday;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ private TextView writeYourDayView;
         String currentDate= DateFormat.getDateInstance(DateFormat.FULL).format(getDate.getTime());
         TextView showDate=findViewById(R.id.displayDayDate);
         writeYourDayView=(TextView) findViewById(R.id.displayDayTextView);
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "font/delighter.otf");
         Intent intent=getIntent();
         String writings = intent.getStringExtra("writings");
         writeYourDayView.setText(writings);
