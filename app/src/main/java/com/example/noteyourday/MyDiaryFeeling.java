@@ -12,16 +12,19 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MyDiaryFeeling extends AppCompatActivity {
-//@BindView(R.id.dayEditText) TextView dayEdit;
+@BindView(R.id.feelingView) ListView feelView;
 //private EditText dayEdit;
 //private TextView myDayFeelings;
 //private ListView feelView;\
+@BindView(R.id.myDayFeeling) TextView feelingsOfDay;
 
 
-
-    private TextView feelingsOfDay;
-    private ListView feelView;
+//    private TextView feelingsOfDay;
+//    private ListView feelView;
     private String[] dayFeelings = new String[]{"Happy", "Proud", "Loved", "Fantastic", "Great", "Crazy",
             "Relaxed", "Angry", "Devilish", "Blessed", "Cheerful", "Energetic", "Beautiful", "Excited", "Lucky", "Disappointed", "Sleepy", "In love", "Satisfied"};
 
@@ -31,9 +34,9 @@ public class MyDiaryFeeling extends AppCompatActivity {
         setContentView(R.layout.activity_my_diary);
 //        saveButton = (Button) findViewById(R.id.saveButton);
 //dayEdit=(EditText) findViewById(R.id.dayEditText);
-        feelingsOfDay = (TextView) findViewById(R.id.myDayFeeling);
-        feelView = (ListView) findViewById(R.id.feelingView);
-//        ButterKnife.bind(this);
+//        feelingsOfDay = (TextView) findViewById(R.id.myDayFeeling);
+//        feelView = (ListView) findViewById(R.id.feelingView);
+        ButterKnife.bind(this);
 //        saveButton.setOnClickListener(this);
         Intent day = getIntent();
         String myDay = day.getStringExtra("myDay");
