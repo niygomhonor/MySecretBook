@@ -6,6 +6,10 @@
 
 ## OVER VIEW OF THIS APPLICATION
 
+<img src="assets/firstface.png">
+<img src="assets/secondface.png">
+<img src="assets/thirdface.png">
+<img src="assets/forthface.png">
 
 ## Contents are the following
   - [x] App description
@@ -15,11 +19,17 @@
   - [x]  Contacts
   - [x]  License
   
-    ### INSTALLATION
+  
+ ### APPLICATION DESCRIPTION
+  
+This App will help people to record how day went in order to be
+ able to keep their memories for several years.
+ 
+ ### INSTALLATION
  
  1. Install  `Android Studio`
  2. Clone this repository(https://github.com/niygomhonor/MySecretBook)
- 3. ``
+ 3.`$ ./studio.sh``
   
     ### CONTACTS
   
