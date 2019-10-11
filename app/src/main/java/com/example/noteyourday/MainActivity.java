@@ -8,23 +8,24 @@ import android.view.View;
 
 import android.widget.Button;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-//@BindView(R.id.startButton) Button saveButton;
-//@BindView(R.id.dayEditText) EditText dayEdit;
-//@BindView(R.id.nameOfApp) TextView nameOfApp;
+@BindView(R.id.startButton) Button startButton;
 
-    private Button startButton;
+//    private Button startButton;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        startButton = (Button) findViewById(R.id.startButton);
-//dayEdit=(EditText) findViewById(R.id.dayEditText);
+//        startButton = (Button) findViewById(R.id.startButton);
 
-//        ButterKnife.bind(this);
+
+        ButterKnife.bind(this);
         startButton.setOnClickListener(this);
 
 
