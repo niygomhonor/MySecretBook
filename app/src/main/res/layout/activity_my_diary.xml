@@ -8,21 +8,22 @@ tools:context=".MainActivity">
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Make your day fun as you wish"
+    android:text="How do I feel today?"
+android:padding="50dp"
     android:id="@+id/myDayFeeling"
     android:layout_centerHorizontal="true" />
 
-
-    <EditText
-        android:layout_width="wrap_content"
+    <ListView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/dayEditText"
+        android:id="@+id/feelingView"
+        android:paddingTop="100dp"
+        android:layout_below="@+id/nameOfApp"
+        android:layout_above="@+id/startButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
-        android:layout_above="@+id/saveButton"
-        android:layout_marginBottom="20dp"
-        android:padding="8dp"
-        android:hint="Write about your day!"
-        android:layout_centerHorizontal="true" />
+
 
 <ImageView
     android:layout_width="wrap_content"

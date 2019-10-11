@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MyDays"></activity>
+        <activity android:name=".DisplayYourDay"></activity>
+        <activity android:name=".MyDays">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.noteyourday.MyDays" />
+        </activity>
         <activity android:name=".MyDiaryFeeling">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
