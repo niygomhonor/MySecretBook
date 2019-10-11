@@ -15,6 +15,12 @@
   - [x]  Contacts
   - [x]  License
   
+    ### INSTALLATION
+ 
+ 1. Install  `Android Studio`
+ 2. Clone this repository(https://github.com/niygomhonor/MySecretBook)
+ 3. ``
+  
     ### CONTACTS
   
   
