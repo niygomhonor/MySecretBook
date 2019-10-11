@@ -7,7 +7,6 @@
 ## Contents are the following
   - [x] App description
   - [x]  Technologies used
-
   - [x]  Contacts
   - [x]  License
   
@@ -24,14 +23,13 @@ This App will help people to record how day went in order to be
 
 3.Write this in terminal `$ ./studio.sh`
   
-    ### CONTACTS
+  ### CONTACTS
   
   
 - [X]  For support contact us:
 
      +  Email:niygomhonor@gmail.com
      +  Instagram:neodohonorine2001
-     +  Phone.Nbr:+2507309838
      +  LinkedIn:NIYONKURU Honorine
      +  Facebook:NIYONKURU Neodo Honorine
      +  Slack:NIYONKURU Honorine
