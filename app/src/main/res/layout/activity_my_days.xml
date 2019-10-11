@@ -8,57 +8,52 @@
     android:weightSum="10"
     tools:context=".MyDays">
 
-<!--<RelativeLayout-->
-<!--    android:layout_height="0dp"-->
-<!--    android:layout_weight="2"-->
-<!--    android:layout_width="match_parent">-->
+    <!--<RelativeLayout-->
+    <!--    android:layout_height="0dp"-->
+    <!--    android:layout_weight="2"-->
+    <!--    android:layout_width="match_parent">-->
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="My Days"
-    android:layout_centerInParent="true"
-    android:textColor="@color/colorHeader"
-    android:id="@+id/textGrid"/>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/dayEditText"
-        android:layout_below="@+id/textGrid"
-        android:layout_centerVertical="true"
-        android:layout_marginBottom="20dp"
-        android:padding="8dp"
-        android:layout_centerInParent="true"
-        android:hint="Write about your day!"
-        android:layout_centerHorizontal="true" />
-
-<!--    <GridLayout-->
-<!--        android:columnCount="2"-->
-<!--        android:rowCount="3"-->
-
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="1dp"-->
-<!--        android:alignmentMode="alignMargins"-->
-<!--        android:columnOrderPreserved="false"-->
-<!--        android:padding="15dp"-->
-<!--        android:layout_weight="0"></GridLayout>-->
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:id="@+id/imageView"
-        android:src="@drawable/niceedit"
         android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/pageHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:paddingLeft="100dp"
+        android:text="I appreciate new day!"
+        android:textAlignment="center"
+        android:textColor="@color/colorHeader"
+        android:textStyle="bold" />
+
+
+    <EditText
+        android:id="@+id/dayEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pageHeading"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="20dp"
+        android:hint="Write about your day!"
+        android:padding="30dp" />
+
+
     <Button
-        android:layout_width="match_parent"
+        android:id="@+id/saveButton"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/colorAccent"
         android:layout_marginBottom="30dp"
-        android:text="Save"
-        android:id="@+id/saveButton"
-        />
+        android:background="@color/colorButton"
+        android:text="Save" />
 
 
 </RelativeLayout>

@@ -9,8 +9,10 @@ tools:context=".MainActivity">
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="How do I feel today?"
-android:padding="50dp"
+     android:padding="50dp"
     android:id="@+id/myDayFeeling"
+    android:textStyle="bold"
+    android:textColor="@color/colorButton"
     android:layout_centerHorizontal="true" />
 
     <ListView
@@ -31,16 +33,16 @@ android:padding="50dp"
     android:id="@+id/imageView"
 
     android:scaleType="centerCrop" />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@color/colorAccent"
-        android:layout_marginBottom="30dp"
-        android:text="Add"
-        android:id="@+id/addButton"
-        />
+<!--    <Button-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:background="@color/colorAccent"-->
+<!--        android:layout_marginBottom="30dp"-->
+<!--        android:text="Add"-->
+<!--        android:id="@+id/addButton"-->
+<!--        />-->
 
 
 </RelativeLayout>

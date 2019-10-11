@@ -23,7 +23,9 @@
         android:textSize="40sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:fontFamily="sans-serif-condensed-light"/>
+        android:fontFamily="sans-serif-condensed-light"
+        android:textFontWeight="23"
+        android:textStyle="bold"/>
 
 
 

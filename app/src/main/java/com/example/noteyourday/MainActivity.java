@@ -10,7 +10,7 @@ import android.widget.Button;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-//@BindView(R.id.saveButton) Button saveButton;
+//@BindView(R.id.startButton) Button saveButton;
 //@BindView(R.id.dayEditText) EditText dayEdit;
 //@BindView(R.id.nameOfApp) TextView nameOfApp;
 
@@ -37,9 +37,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v == startButton) {
             Intent day = new Intent(MainActivity.this, MyDiaryFeeling.class);
 
-            String myDay = day.getStringExtra("myDay");
-
-            day.putExtra("myDay",myDay);
+//            String myDay = day.getStringExtra("myDay");
+//
+//            day.putExtra("myDay",myDay);
             startActivity(day);
         }
     }
