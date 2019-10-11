@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".DisplayYourDay">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/imageView"
+        android:src="@drawable/write"
+        android:scaleType="centerCrop" />
     <TextView
         android:id="@+id/displayDay"
         android:layout_width="wrap_content"
@@ -17,5 +23,6 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:fontFamily="sans-serif-condensed-light"/>
+
 
 </RelativeLayout>
