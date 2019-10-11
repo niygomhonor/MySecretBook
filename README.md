@@ -7,8 +7,7 @@
 ## Contents are the following
   - [x] App description
   - [x]  Technologies used
-  - [x]  Installation
-  - [x] User Story
+
   - [x]  Contacts
   - [x]  License
   
