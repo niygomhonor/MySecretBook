@@ -6,10 +6,10 @@
 
 ## OVER VIEW OF THIS APPLICATION
 
-<img src="assets/firstface.png">
-<img src="assets/secondface.png">
-<img src="assets/thirdface.png">
-<img src="assets/forthface.png">
+<img src="assets/firstface.png" alt="firstface">
+<img src="assets/secondface.png" alt="secondface">
+<img src="assets/thirdface.png" alt="thirdface">
+<img src="assets/forthface.png" alt="forthface">
 
 ## Contents are the following
   - [x] App description
@@ -29,7 +29,7 @@ This App will help people to record how day went in order to be
  
  1. Install  `Android Studio`
  2. Clone this repository(https://github.com/niygomhonor/MySecretBook)
- 3.`$ ./studio.sh``
+3.`$ ./studio.sh``
   
     ### CONTACTS
   
