@@ -6,8 +6,8 @@
 
 ## OVER VIEW OF THIS APPLICATION
 
-<img src="assets/firstface.png" alt="firstface">
-<img src="assets/secondface.png" alt="secondface">
+<img src="/assets/firstface.png" alt="firstface">
+<img src="/assets/secondface.png" alt="secondface">
 <img src="assets/thirdface.png" alt="thirdface">
 <img src="assets/forthface.png" alt="forthface">
 
