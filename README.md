@@ -4,18 +4,9 @@
 
 `NIYONKURU Honorine`
 
-## OVER VIEW OF THIS APPLICATION
-
-<img src="/assets/firstface.png" alt="firstface">
-<img src="/assets/secondface.png" alt="secondface">
-<img src="assets/thirdface.png" alt="thirdface">
-<img src="assets/forthface.png" alt="forthface">
-
 ## Contents are the following
   - [x] App description
   - [x]  Technologies used
-  - [x]  Installation
-  - [x] User Story
   - [x]  Contacts
   - [x]  License
   
@@ -28,17 +19,17 @@ This App will help people to record how day went in order to be
  ### INSTALLATION
  
  1. Install  `Android Studio`
- 2. Clone this repository(https://github.com/niygomhonor/MySecretBook)
-3.`$ ./studio.sh``
+2. Clone this repository(https://github.com/niygomhonor/MySecretBook)
+
+3.Write this in terminal `$ ./studio.sh`
   
-    ### CONTACTS
+  ### CONTACTS
   
   
 - [X]  For support contact us:
 
      +  Email:niygomhonor@gmail.com
      +  Instagram:neodohonorine2001
-     +  Phone.Nbr:+2507309838
      +  LinkedIn:NIYONKURU Honorine
      +  Facebook:NIYONKURU Neodo Honorine
      +  Slack:NIYONKURU Honorine
