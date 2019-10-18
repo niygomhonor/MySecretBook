@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.noteyourday">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/diaryicon"
@@ -9,22 +11,24 @@
         android:roundIcon="@mipmap/diaryicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DisplayYourDay">
+        <activity android:name=".UserI.ArtistsApiThings$ArtistsApiThings"></activity>
+        <activity android:name=".UserI.ArtistsApiThings" />
+        <activity android:name=".UserI.DisplayYourDay">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.noteyourday.DisplayYourDay" />
+                android:value="com.example.noteyourday.UserI.DisplayYourDay" />
         </activity>
-        <activity android:name=".MyDays">
+        <activity android:name=".UserI.MyDays">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.noteyourday.MyDays" />
+                android:value="com.example.noteyourday.UserI.MyDays" />
         </activity>
-        <activity android:name=".MyDiaryFeeling">
+        <activity android:name=".UserI.MyDiaryFeeling">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.noteyourday.MyDiaryFeeling" />
+                android:value="com.example.noteyourday.UserI.MyDiaryFeeling" />
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".UserI.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
