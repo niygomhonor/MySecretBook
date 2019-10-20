@@ -30,15 +30,15 @@ public  class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Eve
     private List<Event> dayEvents=new ArrayList<>();
 private Context dayContext;
 
-    public EventListAdapter(List<Event> dayEvents, Context dayContext) {
-        this.dayEvents = dayEvents;
+    public EventListAdapter( Context dayContext,List<Event> events) {
+        this.dayEvents = events;
         this.dayContext = dayContext;
     }
 
     @NonNull
     @Override
     public EventListAdapter.EventViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.artist_list_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.event_list_item,parent,false);
         EventViewHolder viewHolder=new EventViewHolder(view);
         return viewHolder;
     }

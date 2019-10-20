@@ -1,13 +1,11 @@
-package com.example.noteyourday;
+package com.example.noteyourday.UserI;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.os.Parcel;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.noteyourday.R;
 import com.example.noteyourday.models.Event;
 import com.squareup.picasso.Picasso;
 
@@ -44,6 +43,7 @@ private Event dayEvent;
         EventDetailsFragment eventDetailsFragment = new EventDetailsFragment();
         Bundle args = new Bundle();
         args.putParcelable("event", Parcels.wrap(event));
+        eventDetailsFragment.setArguments(args);
         return eventDetailsFragment;
     }
 
@@ -58,11 +58,8 @@ private Event dayEvent;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-  View view= inflater.inflate(R.layout.fragment_artist_details, container, false);
-
+  View view= inflater.inflate(R.layout.fragment_event_details, container, false);
         ButterKnife.bind(this, view);
-
         Picasso.get().load(dayEvent.getImageUrl()).into(eventImage);
         eventName.setText(dayEvent.getName());
         eventDescription.setText(dayEvent.getDescription());
@@ -77,26 +74,12 @@ private Event dayEvent;
     public void onClick(View v) {
 if(v==eventAddress){
 
-    Intent mapIntent=new Intent(Intent.ACTION_VIEW,Uri.parse(dayEvent.getImageUrl()));
+    Intent mapIntent=new Intent(Intent.ACTION_VIEW,
+            Uri.parse(dayEvent.getImageUrl()));
     startActivity(mapIntent);
 }
 
     }
-    @Override
-    public void onDetach() {
-        super.onDetach();
 
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
 }
 

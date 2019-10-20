@@ -20,7 +20,7 @@ import java.util.Calendar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class DisplayYourDay extends AppCompatActivity implements View.OnClickListener{
+public class DisplayYourDay extends AppCompatActivity {
 
 
 //private EditText writeYourDayArtistView;
@@ -29,14 +29,14 @@ public class DisplayYourDay extends AppCompatActivity implements View.OnClickLis
 //private Button searchArtistOfDay;
 private TextView writeYourDayView;
 @BindView(R.id.displayDayTextView) TextView displayYourDay;
-    @BindView(R.id.searchButton) Button  searchArtistOfDay;
-    @BindView(R.id.eventProgressBar)
-    ProgressBar dairyProgressBar;
+    @BindView(R.id.searchButton) Button  searchEventOfDay;
+//    @BindView(R.id.eventProgressBar)
+//    ProgressBar dairyProgressBar;
 @BindView(R.id.recyclerView)  RecyclerView dairyRecyclerView;
 
 //    @BindView(R.id.artistProgressBar) ProgressBar dairyProgressBar;
 //    @BindView(R.id.SearchDayArtist) EditText writeYourDayArtistView;
-private EditText writeYourDayArtistView;
+private EditText eventLocation;
 
 
     @Override
@@ -57,31 +57,24 @@ private EditText writeYourDayArtistView;
 //        Intent intent1=new Intent(DisplayYourDay.this, EventApiThings.class);
         writeYourDayView.setText(writings);
 //All about retrieving data from Api
-       writeYourDayArtistView=(EditText) findViewById(R.id.SearchDayEvent);
-        searchArtistOfDay.setOnClickListener(new View.OnClickListener() {
+        eventLocation=(EditText) findViewById(R.id.SearchDayEvent);
+
+        searchEventOfDay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
                     Intent intent=new Intent(DisplayYourDay.this, EventApiThings.class);
                 startActivity(intent);
-                    String artist=writeYourDayArtistView.getText().toString();
-                    Toast.makeText(DisplayYourDay.this, artist, Toast.LENGTH_LONG).show();
-                    intent.putExtra("artist",artist);
+                    String location=eventLocation.getText().toString();
+                    Toast.makeText(DisplayYourDay.this, location, Toast.LENGTH_LONG).show();
 
-
+                    intent.putExtra("location",location);
+                startActivity(intent);
             }
         });
 
     }
-
-    @Override
-    public void onClick(View v) {
-
-
-
-    }
-
 
 
 }

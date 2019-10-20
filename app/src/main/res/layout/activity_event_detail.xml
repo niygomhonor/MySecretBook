@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserI.ArtistsApiThings">
+    tools:context=".UserI.EventApiThings">
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <androidx.viewpager.widget.PagerTabStrip
-        android:id="@+id/pagerHeader"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="4dp"
-        android:paddingTop="4dp" />
+        <androidx.viewpager.widget.PagerTabStrip
+            android:id="@+id/pagerHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp" />
 
     </androidx.viewpager.widget.ViewPager>
 </RelativeLayout>

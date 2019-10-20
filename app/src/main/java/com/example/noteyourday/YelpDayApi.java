@@ -7,7 +7,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface YelpDayApi {
-    @GET("businesses/search")
+    @GET("events")
     Call<MyDayEvent>getEvents (
             @Query("location") String location,
             @Query("term") String term
