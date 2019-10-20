@@ -11,8 +11,13 @@
         android:roundIcon="@mipmap/diaryicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserI.ArtistsApiThings$ArtistsApiThings"></activity>
-        <activity android:name=".UserI.ArtistsApiThings" />
+
+        <activity android:name=".UserI.EventApiThings">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.noteyourday.UserI.EventApiThings"/>
+        </activity>
+
         <activity android:name=".UserI.DisplayYourDay">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

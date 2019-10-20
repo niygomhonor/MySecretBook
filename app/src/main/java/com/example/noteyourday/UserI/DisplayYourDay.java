@@ -30,9 +30,11 @@ public class DisplayYourDay extends AppCompatActivity implements View.OnClickLis
 private TextView writeYourDayView;
 @BindView(R.id.displayDayTextView) TextView displayYourDay;
     @BindView(R.id.searchButton) Button  searchArtistOfDay;
-//    @BindView(R.id.) ProgressBar dairyProgressBar;
+    @BindView(R.id.eventProgressBar)
+    ProgressBar dairyProgressBar;
 @BindView(R.id.recyclerView)  RecyclerView dairyRecyclerView;
-    @BindView(R.id.artistProgressBar) ProgressBar dairyProgressBar;
+
+//    @BindView(R.id.artistProgressBar) ProgressBar dairyProgressBar;
 //    @BindView(R.id.SearchDayArtist) EditText writeYourDayArtistView;
 private EditText writeYourDayArtistView;
 
@@ -50,23 +52,33 @@ private EditText writeYourDayArtistView;
         ButterKnife.bind(this);
         writeYourDayView=(TextView) findViewById(R.id.displayDayTextView);
         Intent intent=getIntent();
+
         String writings = intent.getStringExtra("writings");
+//        Intent intent1=new Intent(DisplayYourDay.this, EventApiThings.class);
         writeYourDayView.setText(writings);
 //All about retrieving data from Api
-       writeYourDayArtistView=(EditText) findViewById(R.id.SearchDayArtist);
-        searchArtistOfDay.setOnClickListener(this);
+       writeYourDayArtistView=(EditText) findViewById(R.id.SearchDayEvent);
+        searchArtistOfDay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                    Intent intent=new Intent(DisplayYourDay.this, EventApiThings.class);
+                startActivity(intent);
+                    String artist=writeYourDayArtistView.getText().toString();
+                    Toast.makeText(DisplayYourDay.this, artist, Toast.LENGTH_LONG).show();
+                    intent.putExtra("artist",artist);
+
+
+            }
+        });
+
     }
 
     @Override
     public void onClick(View v) {
 
-        if (v==searchArtistOfDay){
-            Intent intent=new Intent(DisplayYourDay.this, ArtistsApiThings.class);
-            String artist=writeYourDayArtistView.getText().toString();
-            Toast.makeText(DisplayYourDay.this, artist, Toast.LENGTH_LONG).show();
-            intent.putExtra("artist",artist);
 
-        }
 
     }
 

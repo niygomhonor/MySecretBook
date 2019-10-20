@@ -11,10 +11,6 @@ import android.widget.TextView;
 
 import com.example.noteyourday.MyDaysAdapter;
 import com.example.noteyourday.R;
-import com.example.noteyourday.models.Artist;
-import com.example.noteyourday.models.ArtistList;
-import com.example.noteyourday.models.ArtistOfMyDay;
-import com.example.noteyourday.models.Message;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
