@@ -6,14 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".UserI.DisplayYourDay">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
 
-
-        android:layout_marginTop="16dp"
-        android:visibility="gone" />
 
 
     <ImageView
@@ -74,7 +67,7 @@
 
         android:layout_marginTop="500dp"
         android:layout_marginBottom="20dp"
-        android:hint="Search your day Artist"
+        android:hint="Search location and your interesting event"
         android:padding="30dp" />
 
 

@@ -34,8 +34,7 @@ import retrofit2.Response;
 
 public  class EventApiThings extends AppCompatActivity {
     @BindView(R.id.locationTextView) TextView mLocationTextView;
-        @BindView(R.id.recyclerView)
-        RecyclerView dairyRecyclerView;
+        @BindView(R.id.recyclerView) RecyclerView dairyRecyclerView;
         @BindView(R.id.listView)
     ListView eventLocation;
         @BindView(R.id.eventProgressBar)
@@ -44,7 +43,7 @@ public  class EventApiThings extends AppCompatActivity {
 private List<Event> events;
 @BindView(R.id.errorTextView) TextView eventErrorTextView;
 
-        @BindView(R.id.nameOfArtPage) TextView eventDetails;
+//        @BindView(R.id.nameOfArtPage) TextView eventDetails;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -54,32 +53,36 @@ private List<Event> events;
             Intent intent = getIntent();
             String location = intent.getStringExtra("location");
 
-             mLocationTextView.setText("Event location:"+location);
+//             mLocationTextView.setText("Event location:"+location);
             YelpDayApi client = YelpDayClient.getClient();
-            Call<MyDayEvent> call = client.getEvents(location, "events");
+            Call<MyDayEvent> call = client.getEvents(location);
             call.enqueue(new Callback<MyDayEvent>() {
                 @Override
                 public void onResponse(Call<MyDayEvent> call, Response<MyDayEvent> response) {
                     hideProgressBar();
+
                     if (response.isSuccessful()) {
+                        events = response.body().getEvents();
 //                        dayEvents = response.body().getEvents();
-//                        dayAdapter = new EventListAdapter(EventApiThings.this, dayEvents);
-//                        dairyRecyclerView.setAdapter(dayAdapter);
-//                        RecyclerView.LayoutManager layoutManager =
-//                                new LinearLayoutManager(EventApiThings.this);
-//                        dairyRecyclerView.setLayoutManager(layoutManager);
-//                        dairyRecyclerView.setHasFixedSize(true);
-
-                        List<Event> eventList =response.body().getEvents();
-
-                        String [] events= new String[eventList.size()];
-                        for (int i=0;i<events.length;i++){
-
-                            events[i]=eventList.get(i).getName();
-                        }
-                        ArrayAdapter adapter =new MyEventArrayAdapter(EventApiThings.this,android.R.layout.simple_list_item_1,events);
-                        eventLocation.setAdapter(adapter);
-                        System.out.println(eventList);
+                        dayAdapter = new EventListAdapter(EventApiThings.this, events);
+                        dairyRecyclerView.setAdapter(dayAdapter);
+                        RecyclerView.LayoutManager layoutManager =
+                                new LinearLayoutManager(EventApiThings.this);
+                        dairyRecyclerView.setLayoutManager(layoutManager);
+                        dairyRecyclerView.setHasFixedSize(true);
+                        System.out.println(dayAdapter);
+//                        List<Event> eventList =response.body().getEvents();
+//
+//                        String [] events= new String[eventList.size()];
+//                        for (int i=0;i<events.length;i++){
+//
+//                            events[i]=eventList.get(i).getName();
+//                        }
+//                        ArrayAdapter adapter =new MyEventArrayAdapter(EventApiThings.this,android.R.layout.simple_list_item_1,events);
+//                        eventLocation.setAdapter(adapter);
+//                        System.out.println(eventList);
+//                        System.out.println(adapter);
+//                        System.out.println(events);
                         showEvents();
 
                     } else {

@@ -3,14 +3,38 @@
  android:layout_width="match_parent"
 
     android:orientation="horizontal"
-
+    android:text="MY DAY EVENT"
     android:layout_height="wrap_content">
+
+
+
+<!--    <TextView-->
+<!--        android:id="@+id/nameOfArtPage"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="MY DAY EVENT"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:textColor="@color/colorHeader"-->
+<!--        android:textSize="40sp"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:fontFamily="sans-serif-condensed-light"-->
+<!--        android:textFontWeight="23"-->
+<!--        android:textStyle="bold"/>-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:visibility="gone" />
+
 
     <ImageView
         android:layout_width="130dp"
-        android:layout_height="100dp"
-        android:id="@+id/artistImageView"
+        android:layout_height="120dp"
+        android:id="@+id/eventImageView"
         android:src="@drawable/beaute"
+
         android:scaleType="centerCrop"/>
 
     <LinearLayout
@@ -18,26 +42,40 @@
         android:layout_width="match_parent"
         android:background="#ffffff"
         android:layout_height="match_parent"
-        android:padding="10dp">
+        android:padding="8dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/artistNameTextView"
+            android:id="@+id/eventNameTextView"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:text="Artist Name"
+            android:text="event  Name"
             android:textColor="@color/colorPrimary"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Artist track"
-            android:id="@+id/categoryTextView"
-            android:layout_below="@+id/artistNameTextView"
+            android:text="Start track"
+            android:id="@+id/startTextView"
+            android:layout_below="@+id/eventNameTextView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:textStyle="italic"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cost"
+            android:id="@+id/costTextView"
+            android:layout_below="@+id/eventNameTextView"
+            android:drawableLeft="@drawable/ic_monetization_on_black_24dp"
+            android:drawablePadding="100dp"
+            android:textColor="@color/colorHeader"
+            android:textSize="15sp"
+
+            android:textStyle="italic"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"/>
 
         <RelativeLayout
             android:layout_width="match_parent"

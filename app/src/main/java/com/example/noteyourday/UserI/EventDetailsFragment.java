@@ -24,10 +24,11 @@ import butterknife.ButterKnife;
 
 
 public class EventDetailsFragment extends Fragment implements View.OnClickListener {
-
+    @BindView(R.id.timeTextView)
+    TextView beginningTime;
 @BindView(R.id.descTextView) TextView eventDescription;
 @BindView(R.id.addressTextView) TextView eventAddress;
-@BindView(R.id.saveEventButton) Button eventButton;
+//@BindView(R.id.saveEventButton) Button eventButton;
 @BindView(R.id.websiteTextView) TextView eventWeb;
 @BindView(R.id.eventImageView) ImageView eventImage;
 @BindView(R.id.eventNameTextView) TextView eventName;
@@ -60,11 +61,14 @@ private Event dayEvent;
                              Bundle savedInstanceState) {
   View view= inflater.inflate(R.layout.fragment_event_details, container, false);
         ButterKnife.bind(this, view);
+        eventImage.setOnClickListener(this);
+        eventDescription.setOnClickListener(this);
+        beginningTime.setOnClickListener(this);
         Picasso.get().load(dayEvent.getImageUrl()).into(eventImage);
         eventName.setText(dayEvent.getName());
         eventDescription.setText(dayEvent.getDescription());
         eventAddress.setText(dayEvent.getLocation().toString());
-
+        beginningTime.setText(dayEvent.getTimeStart());
         return  view;
     }
 
@@ -72,13 +76,17 @@ private Event dayEvent;
 
     @Override
     public void onClick(View v) {
-if(v==eventAddress){
+if(v==eventDescription){
 
     Intent mapIntent=new Intent(Intent.ACTION_VIEW,
-            Uri.parse(dayEvent.getImageUrl()));
+            Uri.parse("The ending time:"+dayEvent.getTimeEnd()));
+    Uri.parse("More info:"+dayEvent.getEventSiteUrl());
     startActivity(mapIntent);
 }
+if(v==eventName){
 
+
+}
     }
 
 }

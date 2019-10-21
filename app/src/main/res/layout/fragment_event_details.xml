@@ -44,28 +44,16 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Time Start"
-                android:id="@+id/timeTextView"
-                android:layout_alignTop="@+id/artistNameTextView"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:textColor="@color/colorAccent"
-                android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Brunch, American"
-                android:id="@+id/cuisineTextView"
-                android:layout_below="@+id/artistNameTextView"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:textColor="@color/colorPrimaryDark"
-                android:textStyle="italic" />
         </RelativeLayout>
+
+        <TextView
+            android:id="@+id/timeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time Start"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -78,7 +66,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_above="@+id/saveEventButton"
+
                 android:paddingLeft="30dp"
                 android:paddingTop="20dp"
                 android:paddingRight="30dp">
@@ -124,15 +112,15 @@
 
             </LinearLayout>
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Save Event"
-                android:id="@+id/saveEventButton"
-                android:layout_alignParentBottom="true"
-                android:background="@color/colorAccent"
-                android:textColor="@color/colorHeader"
-                android:textSize="15sp" />
+<!--            <Button-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Save Event"-->
+<!--                android:id="@+id/saveEventButton"-->
+<!--                android:layout_alignParentBottom="true"-->
+<!--                android:background="@color/colorAccent"-->
+<!--                android:textColor="@color/colorHeader"-->
+<!--                android:textSize="15sp" />-->
         </RelativeLayout>
     </LinearLayout>
 </FrameLayout>

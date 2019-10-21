@@ -8,12 +8,12 @@ import androidx.annotation.Nullable;
 
 public class MyEventArrayAdapter extends ArrayAdapter {
     private String[] dayEvents;
-    private Context dayContext;
+    private Context context;
 
-    public MyEventArrayAdapter( Context dayContext, int resource, String[] dayEvents) {
-        super(dayContext, resource);
+    public MyEventArrayAdapter( Context context, int resource, String[] dayEvents) {
+        super(context, resource);
         this.dayEvents = dayEvents;
-        this.dayContext = dayContext;
+        this.context = context;
     }
 
 

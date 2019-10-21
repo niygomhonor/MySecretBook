@@ -14,8 +14,7 @@ import static com.example.noteyourday.DiaryConstants.YELP_BASE_URL;
 
 
 public class YelpDayClient {
-//    private static final String YELP_BASE_URL = "https://darksky.net/poweredby/";
-//private static final String YELP_BASE_URL = "https://api.yelp.com/v3/";
+
 
     private static Retrofit retrofit = null;
 

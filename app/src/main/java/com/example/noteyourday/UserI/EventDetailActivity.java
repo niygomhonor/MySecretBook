@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
-import android.os.Parcel;
-
 import com.example.noteyourday.DayAdapters.DairyPagerAdapter;
 import com.example.noteyourday.R;
 import com.example.noteyourday.models.Event;
@@ -13,7 +11,6 @@ import com.example.noteyourday.models.Event;
 import org.parceler.Parcels;
 
 import java.util.List;
-import java.util.PrimitiveIterator;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -32,7 +32,7 @@ private TextView writeYourDayView;
     @BindView(R.id.searchButton) Button  searchEventOfDay;
 //    @BindView(R.id.eventProgressBar)
 //    ProgressBar dairyProgressBar;
-@BindView(R.id.recyclerView)  RecyclerView dairyRecyclerView;
+//@BindView(R.id.recyclerView)  RecyclerView dairyRecyclerView;
 
 //    @BindView(R.id.artistProgressBar) ProgressBar dairyProgressBar;
 //    @BindView(R.id.SearchDayArtist) EditText writeYourDayArtistView;
@@ -65,7 +65,7 @@ private EditText eventLocation;
 
 
                     Intent intent=new Intent(DisplayYourDay.this, EventApiThings.class);
-                startActivity(intent);
+
                     String location=eventLocation.getText().toString();
                     Toast.makeText(DisplayYourDay.this, location, Toast.LENGTH_LONG).show();
 
