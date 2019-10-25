@@ -83,9 +83,13 @@ if(v==eventDescription){
     Uri.parse("More info:"+dayEvent.getEventSiteUrl());
     startActivity(mapIntent);
 }
-if(v==eventName){
+if(v==eventAddress){
 
-
+    Intent mapIntent = new Intent(Intent.ACTION_VIEW,
+            Uri.parse("geo:" + dayEvent.getLatitude()
+                    + "," + dayEvent.getLongitude()
+                    + "?q=(" + dayEvent.getName() + ")"));
+    startActivity(mapIntent);
 }
     }
 

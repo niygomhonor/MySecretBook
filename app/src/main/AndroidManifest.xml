@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/diaryicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserI.EventDetailActivity"></activity>
+        <activity android:name=".UserI.EventDetailActivity" />
         <activity android:name=".UserI.EventApiThings">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

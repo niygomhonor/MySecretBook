@@ -1,10 +1,12 @@
 package com.example.noteyourday.UserI;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
+
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,35 +14,53 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.noteyourday.DiaryConstants;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
 import com.example.noteyourday.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
 import java.util.Calendar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.internal.Constants;
 
 public class DisplayYourDay extends AppCompatActivity {
 
 
-//private EditText writeYourDayArtistView;
-//private  ProgressBar dairyProgressBar;
-//private  RecyclerView dairyRecyclerView;
-//private Button searchArtistOfDay;
+
+private DatabaseReference mSearchedLocationReference;
 private TextView writeYourDayView;
 @BindView(R.id.displayDayTextView) TextView displayYourDay;
     @BindView(R.id.searchButton) Button  searchEventOfDay;
-//    @BindView(R.id.eventProgressBar)
-//    ProgressBar dairyProgressBar;
-//@BindView(R.id.recyclerView)  RecyclerView dairyRecyclerView;
 
-//    @BindView(R.id.artistProgressBar) ProgressBar dairyProgressBar;
-//    @BindView(R.id.SearchDayArtist) EditText writeYourDayArtistView;
 private EditText eventLocation;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+                mSearchedLocationReference = FirebaseDatabase
+                .getInstance()
+                .getReference()
+                .child(DiaryConstants.FIREBASE_CHILD_SEARCHED_LOCATION);
+   mSearchedLocationReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot locationSnapshot : dataSnapshot.getChildren()){
+                    String location = locationSnapshot.getValue().toString();
+                    Log.d("Locations updated", "location: " + location);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_your_day);
 
@@ -62,13 +82,11 @@ private EditText eventLocation;
         searchEventOfDay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                     Intent intent=new Intent(DisplayYourDay.this, EventApiThings.class);
 
                     String location=eventLocation.getText().toString();
                     Toast.makeText(DisplayYourDay.this, location, Toast.LENGTH_LONG).show();
-
+                saveLocationToFirebase(location);
                     intent.putExtra("location",location);
                 startActivity(intent);
             }
@@ -76,5 +94,8 @@ private EditText eventLocation;
 
     }
 
+    public void saveLocationToFirebase(String location) {
+        mSearchedLocationReference.push().setValue(location);
+    }
 
 }
