@@ -20,12 +20,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-public class FirebaseEventViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+public class FirebaseEventViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     View mView;
     Context mContext;
 
@@ -35,20 +36,25 @@ public class FirebaseEventViewHolder extends RecyclerView.ViewHolder implements 
         mContext = itemView.getContext();
         itemView.setOnClickListener(this);
     }
-public  void bindEvent(Event event){
-    ImageView eventImageView=(ImageView) mView.findViewById(R.id.eventImageView);
-    TextView nameTextView = (TextView) mView.findViewById(R.id.eventNameTextView);
 
-}
+    public void bindEvent(Event event) {
+        ImageView eventImageView = (ImageView) mView.findViewById(R.id.eventImageView);
+        TextView nameTextView = (TextView) mView.findViewById(R.id.eventNameTextView);
+        TextView startTime=(TextView) mView.findViewById(R.id.timeTextView) ;
+        TextView descOfEvent=(TextView) mView.findViewById(R.id.descTextView) ;
+        Picasso.get().load(event.getImageUrl()).into(eventImageView);
+        nameTextView.setText(event.getName());
+        startTime.setText(event.getTimeStart());
+        descOfEvent.setText(event.getDescription());
+
+    }
 
     @Override
     public void onClick(View v) {
         final ArrayList<Event> events = new ArrayList<>();
-
-
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
-//        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RESTAURANTS).child(uid);
+
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference(DiaryConstants.FIREBASE_CHILD_EVENTS).child(uid);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -61,7 +67,7 @@ public  void bindEvent(Event event){
 
                 Intent intent = new Intent(mContext, EventDetailActivity.class);
                 intent.putExtra("position", itemPosition + "");
-                intent.putExtra("restaurants", Parcels.wrap(events));
+                intent.putExtra("events", Parcels.wrap(events));
 
                 mContext.startActivity(intent);
             }
