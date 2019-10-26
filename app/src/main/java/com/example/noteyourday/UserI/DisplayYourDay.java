@@ -37,8 +37,8 @@ private DatabaseReference mSearchedLocationReference;
 private TextView writeYourDayView;
 @BindView(R.id.displayDayTextView) TextView displayYourDay;
     @BindView(R.id.searchButton) Button  searchEventOfDay;
-
-private EditText eventLocation;
+    @BindView(R.id.savedEventsButton) Button savedEventsButton;
+//private EditText eventLocation;
 
 
     @Override
@@ -77,20 +77,35 @@ private EditText eventLocation;
 //        Intent intent1=new Intent(DisplayYourDay.this, EventApiThings.class);
         writeYourDayView.setText(writings);
 //All about retrieving data from Api
-        eventLocation=(EditText) findViewById(R.id.SearchDayEvent);
 
-        searchEventOfDay.setOnClickListener(new View.OnClickListener() {
-            @Override
+//        eventLocation=(EditText) findViewById(R.id.SearchDayEvent);
+
+savedEventsButton.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        if (v == savedEventsButton) {
+            Intent intent = new Intent(DisplayYourDay.this, SavedEventListActivity.class);
+            startActivity(intent);
+        }
+    }
+});
+searchEventOfDay.setOnClickListener(new View.OnClickListener() {
+    @Override
             public void onClick(View v) {
                     Intent intent=new Intent(DisplayYourDay.this, EventApiThings.class);
 
-                    String location=eventLocation.getText().toString();
-                    Toast.makeText(DisplayYourDay.this, location, Toast.LENGTH_LONG).show();
-                saveLocationToFirebase(location);
-                    intent.putExtra("location",location);
+//                    String location=eventLocation.getText().toString();
+//                    Toast.makeText(DisplayYourDay.this, location, Toast.LENGTH_LONG).show();
+//                saveLocationToFirebase(location);
+//                    intent.putExtra("location",location);
                 startActivity(intent);
+
+
             }
+
         });
+
+
 
     }
 

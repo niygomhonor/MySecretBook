@@ -65,13 +65,11 @@ public class Event {
     @SerializedName("time_start")
     @Expose
     private String timeStart;
-    @SerializedName("location")
-    @Expose
-    private Location location;
+
     @SerializedName("business_id")
     @Expose
     private String businessId;
-
+    private String pushId;
     /**
      * No args constructor for use in serialization
      * 
@@ -84,7 +82,7 @@ public class Event {
      * @param eventSiteUrl
      * @param isCanceled
      * @param ticketsUrl
-     * @param location
+
      * @param imageUrl
      * @param costMax
      * @param isOfficial
@@ -102,7 +100,7 @@ public class Event {
      * @param businessId
      * @param latitude
      */
-    public Event(Integer attendingCount, String category, double cost, double costMax, String description, String eventSiteUrl, String id, String imageUrl, Integer interestedCount, Boolean isCanceled, Boolean isFree, Boolean isOfficial, Double latitude, Double longitude, String name, String ticketsUrl, String timeEnd, String timeStart, Location location, String businessId) {
+    public Event(Integer attendingCount, String category, double cost, double costMax, String description, String eventSiteUrl, String id, String imageUrl, Integer interestedCount, Boolean isCanceled, Boolean isFree, Boolean isOfficial, Double latitude, Double longitude, String name, String ticketsUrl, String timeEnd, String timeStart,  String businessId) {
         super();
         this.attendingCount = attendingCount;
         this.category = category;
@@ -110,7 +108,6 @@ public class Event {
         this.costMax = costMax;
         this.description = description;
         this.eventSiteUrl = eventSiteUrl;
-        this.id = id;
         this.imageUrl = imageUrl;
         this.interestedCount = interestedCount;
         this.isCanceled = isCanceled;
@@ -122,7 +119,7 @@ public class Event {
         this.ticketsUrl = ticketsUrl;
         this.timeEnd = timeEnd;
         this.timeStart = timeStart;
-        this.location = location;
+
         this.businessId = businessId;
     }
 
@@ -186,6 +183,10 @@ public class Event {
         return imageUrl;
     }
 
+    public String getLargeImageUrl(String imageUrl) {
+        String largeImageUrl = imageUrl.substring(0, imageUrl.length() - 6).concat("o.jpg");
+        return largeImageUrl;
+    }
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
@@ -270,12 +271,12 @@ public class Event {
         this.timeStart = timeStart;
     }
 
-    public Location getLocation() {
-        return location;
+    public String getPushId() {
+        return pushId;
     }
 
-    public void setLocation(Location location) {
-        this.location = location;
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 
     public String getBusinessId() {

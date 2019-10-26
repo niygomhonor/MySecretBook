@@ -14,8 +14,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorPrimary">
+        android:layout_height="match_parent">
 
         <ImageView
             android:layout_width="match_parent"
@@ -112,15 +111,15 @@
 
             </LinearLayout>
 
-<!--            <Button-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Save Event"-->
-<!--                android:id="@+id/saveEventButton"-->
-<!--                android:layout_alignParentBottom="true"-->
-<!--                android:background="@color/colorAccent"-->
-<!--                android:textColor="@color/colorHeader"-->
-<!--                android:textSize="15sp" />-->
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Save Event"
+                android:id="@+id/saveDayEventButton"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorAccent"
+                android:textColor="@color/colorHeader"
+                android:textSize="15sp" />
         </RelativeLayout>
     </LinearLayout>
 </FrameLayout>

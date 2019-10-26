@@ -1,4 +1,4 @@
-package com.example.noteyourday;
+package com.example.noteyourday.networks;
 
 import com.example.noteyourday.models.MyDayEvent;
 

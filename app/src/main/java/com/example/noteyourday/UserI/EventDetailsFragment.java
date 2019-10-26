@@ -12,9 +12,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.noteyourday.DiaryConstants;
 import com.example.noteyourday.R;
 import com.example.noteyourday.models.Event;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -28,10 +34,11 @@ public class EventDetailsFragment extends Fragment implements View.OnClickListen
     TextView beginningTime;
 @BindView(R.id.descTextView) TextView eventDescription;
 @BindView(R.id.addressTextView) TextView eventAddress;
-//@BindView(R.id.saveEventButton) Button eventButton;
+@BindView(R.id.saveDayEventButton) TextView dayEventButton;
 @BindView(R.id.websiteTextView) TextView eventWeb;
 @BindView(R.id.eventImageView) ImageView eventImage;
 @BindView(R.id.eventNameTextView) TextView eventName;
+
 private Event dayEvent;
 
     public EventDetailsFragment() {
@@ -64,10 +71,11 @@ private Event dayEvent;
         eventImage.setOnClickListener(this);
         eventDescription.setOnClickListener(this);
         beginningTime.setOnClickListener(this);
+        dayEventButton.setOnClickListener(this);
         Picasso.get().load(dayEvent.getImageUrl()).into(eventImage);
         eventName.setText(dayEvent.getName());
         eventDescription.setText(dayEvent.getDescription());
-        eventAddress.setText(dayEvent.getLocation().toString());
+//        eventAddress.setText(dayEvent.getLocation().toString());
         beginningTime.setText(dayEvent.getTimeStart());
         return  view;
     }
@@ -91,7 +99,27 @@ if(v==eventAddress){
                     + "?q=(" + dayEvent.getName() + ")"));
     startActivity(mapIntent);
 }
+
+          if (v == dayEventButton) {
+              FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+              String uid = user.getUid();
+
+              DatabaseReference eventRef = FirebaseDatabase
+                .getInstance()
+                .getReference(DiaryConstants.FIREBASE_CHILD_EVENTS).child(uid);
+              DatabaseReference pushRef = eventRef.push();
+              String pushId = pushRef.getKey();
+              dayEvent.setPushId(pushId);
+              pushRef.setValue(dayEvent);
+//              eventRef.push().setValue(dayEvent);
+        Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+        System.out.println("Jesus love you");
     }
 
+
+
+    }
 }
+
+
 

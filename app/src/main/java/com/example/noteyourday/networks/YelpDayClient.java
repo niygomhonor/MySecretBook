@@ -1,4 +1,6 @@
-package com.example.noteyourday;
+package com.example.noteyourday.networks;
+
+import com.example.noteyourday.networks.YelpDayApi;
 
 import java.io.IOException;
 

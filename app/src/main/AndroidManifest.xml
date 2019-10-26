@@ -11,6 +11,23 @@
         android:roundIcon="@mipmap/diaryicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".UserI.ui.CreateAccountActivity"></activity>
+        <activity
+            android:name=".UserI.ui.LoginActivity"
+            android:label="@string/title_activity_login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".UserI.EventListActivity" >
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.noteyourday.UserI.MainActivity" />
+        </activity>
+        <activity android:name=".UserI.SavedEventListActivity" />
         <activity android:name=".UserI.EventDetailActivity" />
         <activity android:name=".UserI.EventApiThings">
             <meta-data
@@ -33,11 +50,9 @@
                 android:value="com.example.noteyourday.UserI.MyDiaryFeeling" />
         </activity>
         <activity android:name=".UserI.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.noteyourday.UserI.MainActivity" />
         </activity>
     </application>
 
