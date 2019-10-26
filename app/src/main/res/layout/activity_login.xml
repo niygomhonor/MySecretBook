@@ -5,7 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserI.ui.login.LoginActivity">
+    tools:context=".UserI.ui.LoginActivity">
 
     <LinearLayout
         android:orientation="vertical"

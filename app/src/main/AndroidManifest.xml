@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/diaryicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserI.ui.CreateAccountActivity"></activity>
+        <activity android:name=".UserI.ui.CreateAccountActivity"
+            android:label="Sign up"></activity>
         <activity
             android:name=".UserI.ui.LoginActivity"
             android:label="@string/title_activity_login">
@@ -29,12 +30,14 @@
         </activity>
         <activity android:name=".UserI.SavedEventListActivity" />
         <activity android:name=".UserI.EventDetailActivity" />
-        <activity android:name=".UserI.EventApiThings">
+        <activity android:name=".UserI.EventApiThings"
+            android:label="@string/currentEvents">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.noteyourday.UserI.EventApiThings" />
         </activity>
-        <activity android:name=".UserI.DisplayYourDay">
+        <activity android:name=".UserI.DisplayYourDay"
+            android:label="@string/myDay">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.noteyourday.UserI.DisplayYourDay" />
@@ -44,12 +47,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.noteyourday.UserI.MyDays" />
         </activity>
-        <activity android:name=".UserI.MyDiaryFeeling">
+        <activity android:name=".UserI.MyDiaryFeeling"
+            android:label="@string/feelings">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.noteyourday.UserI.MyDiaryFeeling" />
         </activity>
-        <activity android:name=".UserI.MainActivity">
+        <activity android:name=".UserI.MainActivity"
+          >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.noteyourday.UserI.MainActivity" />
