@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.noteyourday">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/diaryicon"
@@ -9,27 +11,53 @@
         android:roundIcon="@mipmap/diaryicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DisplayYourDay">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.noteyourday.DisplayYourDay" />
-        </activity>
-        <activity android:name=".MyDays">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.noteyourday.MyDays" />
-        </activity>
-        <activity android:name=".MyDiaryFeeling">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.noteyourday.MyDiaryFeeling" />
-        </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".UserI.ui.CreateAccountActivity"
+            android:label="Sign up"></activity>
+        <activity
+            android:name=".UserI.ui.LoginActivity"
+            android:label="@string/title_activity_login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".UserI.EventListActivity" >
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.noteyourday.UserI.MainActivity" />
+        </activity>
+        <activity android:name=".UserI.SavedEventListActivity" />
+        <activity android:name=".UserI.EventDetailActivity" />
+        <activity android:name=".UserI.EventApiThings"
+            android:label="@string/currentEvents">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.noteyourday.UserI.EventApiThings" />
+        </activity>
+        <activity android:name=".UserI.DisplayYourDay"
+            android:label="@string/myDay">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.noteyourday.UserI.DisplayYourDay" />
+        </activity>
+        <activity android:name=".UserI.MyDays">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.noteyourday.UserI.MyDays" />
+        </activity>
+        <activity android:name=".UserI.MyDiaryFeeling"
+            android:label="@string/feelings">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.noteyourday.UserI.MyDiaryFeeling" />
+        </activity>
+        <activity android:name=".UserI.MainActivity"
+          >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.noteyourday.UserI.MainActivity" />
         </activity>
     </application>
 
