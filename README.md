@@ -12,7 +12,8 @@
 <img src="photoes/secondface.png">
 <img src="photoes/thirdface.png">
 <img src="photoes/forthface.png">
-
+<img src="photoes/currentEvent.png">
+<img src="photoes/eventDetails.png">
 
 ## Contents are the following
   - [x] App description
