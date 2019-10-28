@@ -1,4 +1,4 @@
-package com.example.noteyourday;
+package com.example.noteyourday.UserI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.noteyourday.R;
 
 public class MyDays extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.noteyourday;
+package com.example.noteyourday.UserI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,11 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.noteyourday.MyDaysAdapter;
+import com.example.noteyourday.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,18 +28,23 @@ public class MyDiaryFeeling extends AppCompatActivity {
     private String[] dayFeelings = new String[]{"Happy", "Proud", "Loved", "Fantastic", "Great", "Crazy",
             "Relaxed", "Angry", "Devilish", "Blessed", "Cheerful", "Energetic", "Beautiful", "Excited", "Lucky", "Disappointed", "Sleepy", "In love", "Satisfied"};
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_diary);
-//        saveButton = (Button) findViewById(R.id.saveButton);
-//dayEdit=(EditText) findViewById(R.id.dayEditText);
-//        feelingsOfDay = (TextView) findViewById(R.id.myDayFeeling);
-//        feelView = (ListView) findViewById(R.id.feelingView);
+
+
         ButterKnife.bind(this);
+
+
 //        saveButton.setOnClickListener(this);
         Intent day = getIntent();
         String myDay = day.getStringExtra("myDay");
+
+
+
         MyDaysAdapter daysAdapter = new MyDaysAdapter(this, android.R.layout.simple_list_item_1, dayFeelings);
 //        Toast.makeText(this, ""+dayFeelings, Toast.LENGTH_SHORT).show();
         feelView.setAdapter(daysAdapter);

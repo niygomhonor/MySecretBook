@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "566982587301",
+    "firebase_url": "https://noteyourday.firebaseio.com",
+    "project_id": "noteyourday",
+    "storage_bucket": "noteyourday.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566982587301:android:fb48c6fbf68df7f51bee4c",
+        "android_client_info": {
+          "package_name": "com.example.noteyourday"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "566982587301-el188jthi1avk3f9ugkgumnea2pkaepk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.noteyourday",
+            "certificate_hash": "ee24dc055fc364c0a283b8b3f5626e4fd6b5b45d"
+          }
+        },
+        {
+          "client_id": "566982587301-ernsl9ndd5n7vu9dko96oat8pckpfmgc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBExdY2EXIY3reqBbnWhHwpXR_7Ewh4Et8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "566982587301-ernsl9ndd5n7vu9dko96oat8pckpfmgc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

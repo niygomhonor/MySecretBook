@@ -7,10 +7,10 @@
 
 ## OVER VIEW OF THIS APPLICATION
 
-<img src="assets/firstface.png">
-<img src="assets/secondface.png">
-<img src="assets/thirdface.png">
-<img src="assets/forthface.png">
+<img src="photoes/firstface.png">
+<img src="photoes/secondface.png">
+<img src="photoes/thirdface.png">
+<img src="photoes/forthface.png">
 
 
 ## Contents are the following
