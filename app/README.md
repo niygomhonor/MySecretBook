@@ -23,7 +23,7 @@
   ### APPLICATION DESCRIPTION
   
 This App will help people to record how day went in order to be
- able to keep their memories for several years.
+ able to keep their memories for several days.
   
  ### TECHNOLOGIES USED
  
@@ -31,7 +31,6 @@ This App will help people to record how day went in order to be
  + Android Studio
  + Android mobile phone
  + Emulator
-
 
   
   ### INSTALLATION
