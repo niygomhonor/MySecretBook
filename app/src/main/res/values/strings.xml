@@ -8,7 +8,7 @@
     <string name="feelings">Days feelings</string>
     <string name="myDay">My Day</string>
     <string name="currentEvents">Current Events</string>
-    <string name="prompt_email"></string>
+
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
