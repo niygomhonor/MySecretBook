@@ -45,6 +45,7 @@
 #### Database part
 
 <img src="photoes/eventsSavedInFirebase.png">
+  <img src="photoes/eventLocation.png">
   
   ### INSTALLATION
  
