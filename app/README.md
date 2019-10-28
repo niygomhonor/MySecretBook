@@ -38,7 +38,7 @@ This App will help people to record how day went in order to be
  
  1. Install  `Android Studio`
  2. Clone this repository(https://github.com/niygomhonor/MySecretBook)
- 3. `$ ./studio.sh`
+ 3. `$ ./studio.sh` to open it in it android environment 
 
     ### CONTACTS
   
