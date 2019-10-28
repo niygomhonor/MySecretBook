@@ -30,32 +30,29 @@ import butterknife.ButterKnife;
 import butterknife.internal.Constants;
 
 public class DisplayYourDay extends AppCompatActivity {
+    @BindView(R.id.displayDayTextView)
+    TextView displayYourDay;
+    @BindView(R.id.searchButton)
+    Button searchEventOfDay;
+    private DatabaseReference mSearchedLocationReference;
+    private TextView writeYourDayView;
 
-
-
-private DatabaseReference mSearchedLocationReference;
-private TextView writeYourDayView;
-@BindView(R.id.displayDayTextView) TextView displayYourDay;
-    @BindView(R.id.searchButton) Button  searchEventOfDay;
-    @BindView(R.id.savedEventsButton) Button savedEventsButton;
 //private EditText eventLocation;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-                mSearchedLocationReference = FirebaseDatabase
+        mSearchedLocationReference = FirebaseDatabase
                 .getInstance()
                 .getReference()
                 .child(DiaryConstants.FIREBASE_CHILD_SEARCHED_LOCATION);
-   mSearchedLocationReference.addValueEventListener(new ValueEventListener() {
+        mSearchedLocationReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot locationSnapshot : dataSnapshot.getChildren()){
+                for (DataSnapshot locationSnapshot : dataSnapshot.getChildren()) {
                     String location = locationSnapshot.getValue().toString();
                     Log.d("Locations updated", "location: " + location);
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
@@ -65,52 +62,28 @@ private TextView writeYourDayView;
         setContentView(R.layout.activity_display_your_day);
 
 
-        Calendar getDate=Calendar.getInstance();
-        String currentDate= DateFormat.getDateInstance(DateFormat.FULL).format(getDate.getTime());
-        TextView showDate=findViewById(R.id.displayDayDate);
+        Calendar getDate = Calendar.getInstance();
+        String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(getDate.getTime());
+        TextView showDate = findViewById(R.id.displayDayDate);
         showDate.setText(currentDate);
         ButterKnife.bind(this);
-        writeYourDayView=(TextView) findViewById(R.id.displayDayTextView);
-        Intent intent=getIntent();
+        writeYourDayView = (TextView) findViewById(R.id.displayDayTextView);
+        Intent intent = getIntent();
 
         String writings = intent.getStringExtra("writings");
-//        Intent intent1=new Intent(DisplayYourDay.this, EventApiThings.class);
+
         writeYourDayView.setText(writings);
-//All about retrieving data from Api
 
-//        eventLocation=(EditText) findViewById(R.id.SearchDayEvent);
-
-savedEventsButton.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        if (v == savedEventsButton) {
-            Intent intent = new Intent(DisplayYourDay.this, SavedEventListActivity.class);
-            startActivity(intent);
-        }
-    }
-});
-searchEventOfDay.setOnClickListener(new View.OnClickListener() {
-    @Override
+        searchEventOfDay.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
-                    Intent intent=new Intent(DisplayYourDay.this, EventApiThings.class);
+                Intent intent = new Intent(DisplayYourDay.this, EventApiThings.class);
 
-//                    String location=eventLocation.getText().toString();
-//                    Toast.makeText(DisplayYourDay.this, location, Toast.LENGTH_LONG).show();
-//                saveLocationToFirebase(location);
-//                    intent.putExtra("location",location);
                 startActivity(intent);
-
-
             }
-
         });
-
-
-
     }
-
     public void saveLocationToFirebase(String location) {
         mSearchedLocationReference.push().setValue(location);
     }
-
 }

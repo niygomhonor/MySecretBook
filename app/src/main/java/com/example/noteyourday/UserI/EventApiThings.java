@@ -130,7 +130,9 @@ public class EventApiThings extends AppCompatActivity {
             }
         });
         return true;
-    }    private void getEvents(String location) {
+    }
+
+    private void getEvents(String location) {
         final YelpDayServices yelpService = new YelpDayServices();
         yelpService.findEvents(location, new okhttp3.Callback() {
 
@@ -156,13 +158,16 @@ public class EventApiThings extends AppCompatActivity {
             }
         });
     }
+
     private void addToSharedPreferences(String location) {
         dayEditor.putString(DiaryConstants.PREFERENCES_LOCATION_KEY, location).apply();
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
     }
+
     private void showUnsuccessfulMessage() {
         eventErrorTextView.setText("Something went wrong. Please try again later");
         eventErrorTextView.setVisibility(View.VISIBLE);

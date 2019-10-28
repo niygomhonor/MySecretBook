@@ -82,6 +82,8 @@
         android:textStyle="bold"
         android:fontFamily="sans-serif-condensed-light"/>
 
+
+
     <Button
         android:id="@+id/searchButton"
         android:layout_width="100dp"
