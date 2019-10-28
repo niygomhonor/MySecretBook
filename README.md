@@ -24,8 +24,8 @@
   
   ### APPLICATION DESCRIPTION
   
-This App will help people to record how day went in order to be
- able to keep their memories for several days.
+  This App will help people to record how day went in order to be
+   able to keep their memories for several days.
   
  ### TECHNOLOGIES USED
  
@@ -33,7 +33,18 @@ This App will help people to record how day went in order to be
  + Android Studio
  + Android mobile phone
  + Emulator
+ + Firebase
+ 
+ ### Firebase Overview
 
+
+ #### Authentication part
+ 
+ <img src="photoes/UserOfMyApplication.png">
+
+#### Database part
+
+<img src="photoes/eventsSavedInFirebase.png">
   
   ### INSTALLATION
  
