@@ -1,29 +1,45 @@
+
 # MySecretBook
 
 ## Author 
 
 `NIYONKURU Honorine`
 
+## OVER VIEW OF THIS APPLICATION
+
+<img src="photoes/firstface.png">
+<img src="photoes/secondface.png">
+<img src="photoes/thirdface.png">
+<img src="photoes/forthface.png">
+
+
 ## Contents are the following
   - [x] App description
   - [x]  Technologies used
+  - [x]  Installation
   - [x]  Contacts
   - [x]  License
   
-  
- ### APPLICATION DESCRIPTION
+  ### APPLICATION DESCRIPTION
   
 This App will help people to record how day went in order to be
- able to keep their memories for several years.
+ able to keep their memories for several days.
+  
+ ### TECHNOLOGIES USED
  
- ### INSTALLATION
+
+ + Android Studio
+ + Android mobile phone
+ + Emulator
+
+  
+  ### INSTALLATION
  
  1. Install  `Android Studio`
-2. Clone this repository(https://github.com/niygomhonor/MySecretBook)
+ 2. Clone this repository(https://github.com/niygomhonor/MySecretBook)
+ 3. `$ ./studio.sh`
 
-3.Write this in terminal `$ ./studio.sh`
-  
-  ### CONTACTS
+    ### CONTACTS
   
   
 - [X]  For support contact us:
@@ -34,7 +50,7 @@ This App will help people to record how day went in order to be
      +  Facebook:NIYONKURU Neodo Honorine
      +  Slack:NIYONKURU Honorine
 
-### LISENCE
+### LICENCE
 - [x] MIT
 
 Copyright &copy; [2019] NIYONKURU Honorine
