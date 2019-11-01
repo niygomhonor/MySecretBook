@@ -1,5 +1,6 @@
 package com.example.noteyourday.UserI;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,6 +10,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -115,7 +118,12 @@ if(v==eventAddress){
         Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         System.out.println("Jesus love you");
     }
-
+eventImage.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+//        @SuppressLint("ResourceType") Animation animate= AnimationUtils.loadAnimation(this,R.animator.drag_scale_off);
+    }
+});
 
 
     }

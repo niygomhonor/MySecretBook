@@ -13,14 +13,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.noteyourday.R;
 
-import com.example.noteyourday.UserI.EventApiThings;
+//import com.example.noteyourday.UserI.EventApiThings;
 import com.example.noteyourday.UserI.EventDetailActivity;
 import com.example.noteyourday.models.Event;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import butterknife.BindView;

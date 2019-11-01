@@ -3,11 +3,14 @@ package com.example.noteyourday.UserI.ui;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -66,9 +69,12 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         }
 
         if (view == mCreateUserButton) {
+            @SuppressLint("ResourceType") Animation animate= AnimationUtils.loadAnimation(this,R.animator.bounceit);
+            mCreateUserButton.startAnimation(animate);
             createNewUser();
         }
     }
+
     private void createNewUser() {
         mName = mNameEditText.getText().toString().trim();
         final String name = mNameEditText.getText().toString().trim();

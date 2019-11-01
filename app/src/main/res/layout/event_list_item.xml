@@ -30,19 +30,27 @@
 
 
     <ImageView
-        android:layout_width="130dp"
-        android:layout_height="120dp"
         android:id="@+id/eventImageView"
-        android:src="@drawable/beaute"
+        android:layout_width="130dp"
+        android:layout_height="100dp"
+        android:paddingTop="10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/beaute" />
 
-        android:scaleType="centerCrop"/>
-
+    <ImageView
+        android:id="@+id/dragIcon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignLeft="@id/restaurantImageView"
+        android:layout_alignBottom="@id/restaurantImageView"
+        android:gravity="bottom|left"
+        android:src="@drawable/ic_reorder_white_24dp"/>
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:background="#ffffff"
         android:layout_height="match_parent"
-        android:padding="8dp">
+        android:paddingTop="10dp">
 
         <TextView
             android:layout_width="wrap_content"

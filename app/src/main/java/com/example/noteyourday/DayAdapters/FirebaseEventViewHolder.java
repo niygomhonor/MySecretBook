@@ -30,6 +30,8 @@ public class FirebaseEventViewHolder extends RecyclerView.ViewHolder implements 
     View mView;
     Context mContext;
 
+    public  ImageView eventImageView ;
+
     public FirebaseEventViewHolder(View itemView) {
         super(itemView);
         mView = itemView;
@@ -38,7 +40,7 @@ public class FirebaseEventViewHolder extends RecyclerView.ViewHolder implements 
     }
 
     public void bindEvent(Event event) {
-        ImageView eventImageView = (ImageView) mView.findViewById(R.id.eventImageView);
+        eventImageView=(ImageView) mView.findViewById(R.id.eventImageView);
         TextView nameTextView = (TextView) mView.findViewById(R.id.eventNameTextView);
         TextView startTime=(TextView) mView.findViewById(R.id.timeTextView) ;
         TextView descOfEvent=(TextView) mView.findViewById(R.id.descTextView) ;

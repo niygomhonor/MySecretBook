@@ -112,9 +112,10 @@
             </LinearLayout>
 
             <Button
-                android:layout_width="100dp"
+                android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 android:text="Save Event"
+                android:layout_marginLeft="130dp"
                 android:id="@+id/saveDayEventButton"
                 android:layout_alignParentBottom="true"
                 android:background="@color/colorAccent"

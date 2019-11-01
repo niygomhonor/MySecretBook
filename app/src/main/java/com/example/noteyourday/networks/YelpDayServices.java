@@ -2,8 +2,6 @@ package com.example.noteyourday.networks;
 
 import com.example.noteyourday.DiaryConstants;
 import com.example.noteyourday.models.Event;
-import com.example.noteyourday.models.Location;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,9 +22,9 @@ public class YelpDayServices {
                 .build();
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(DiaryConstants.YELP_BASE_URL).newBuilder();
-        urlBuilder.addQueryParameter(DiaryConstants.PREFERENCES_LOCATION_KEY, location);
+        urlBuilder.addQueryParameter(DiaryConstants.YELP_LOCATION_QUERY_PARAMETER, location);
         String url = urlBuilder.build().toString();
-        final String API_KEY_QUERY_PARAMETER = "location";
+//        final String API_KEY_QUERY_PARAMETER = "location";
         Request request = new Request.Builder()
                 .url(url)
                 .header("Authorization", DiaryConstants.YELP_API_KEY)
@@ -46,36 +44,31 @@ public class YelpDayServices {
                 for (int i = 0; i < businessesJSON.length(); i++) {
                     JSONObject eventJSON = businessesJSON.getJSONObject(i);
                     String name = eventJSON.getString("name");
-                   int attendingCount = eventJSON.getInt("attendingCount");
-
-                   String category = eventJSON.getString("rating");
+                   int attendingCount = eventJSON.getInt("attending_count");
+                   String category = eventJSON.getString("category");
                     String imageUrl = eventJSON.getString("image_url");
-                    double latitude = eventJSON.getJSONObject("coordinates").getDouble("latitude");
-                    double longitude = eventJSON.getJSONObject("coordinates").getDouble("longitude");
+                    double latitude = eventJSON.getDouble("latitude");
+                    double longitude = eventJSON.getDouble("longitude");
                     String description=eventJSON.getString("description");
-                    double cost=eventJSON.getDouble("cost");
-                    double costMax=eventJSON.getDouble("costMax");
-                    String eventSiteUrl=eventJSON.getString("eventSiteUrl");
+//                 int cost=eventJSON.getInt("cost");
+//                    double costMax=eventJSON.getDouble("costMax");
+                    String eventSiteUrl=eventJSON.getString("event_site_url");
                     String id=eventJSON.getString("id");
-                    Integer interestedCount=eventJSON.getInt("interestedCount");
-                    Boolean isCanceled=eventJSON.getBoolean("isCanceled");
-                    Boolean isFree=eventJSON.getBoolean("isFree");
-                    Boolean isOfficial=eventJSON.getBoolean("isOfficial");
-                    String ticketsUrl=eventJSON.getString("ticketsUrl");
-                    String timeEnd=eventJSON.getString("timeEnd");
-                    String timeStart=eventJSON.getString("timeStart");
-                    String businessId=eventJSON.getString("businessId");
+                    Integer interestedCount=eventJSON.getInt("interested_count");
+                    Boolean isCanceled=eventJSON.getBoolean("is_canceled");
+                    Boolean isFree=eventJSON.getBoolean("is_free");
+                    Boolean isOfficial=eventJSON.getBoolean("is_official");
+                    String ticketsUrl=eventJSON.getString("tickets_url");
+                    String timeEnd=eventJSON.getString("time_end");
+                    String timeStart=eventJSON.getString("time_start");
+                    String businessId=eventJSON.getString("business_id");
                     ArrayList<String> address = new ArrayList<>();
                     JSONArray addressJSON = eventJSON.getJSONObject("location").getJSONArray("display_address");
                     for (int y = 0; y < addressJSON.length(); y++) {
                         address.add(addressJSON.get(y).toString());
                     }
-                    ArrayList<String> categories = new ArrayList<>();
-                    JSONArray categoriesJSON = eventJSON.getJSONArray("categories");
-                    for (int y = 0; y < categoriesJSON.length(); y++) {
-                        categories.add(categoriesJSON.getJSONObject(y).getString("title"));
-                    }
-                    Event event = new Event(attendingCount, category,  cost,  costMax,  description,  eventSiteUrl,id, imageUrl, interestedCount,  isCanceled,  isFree,  isOfficial,  latitude,  longitude,  name,ticketsUrl, timeEnd, timeStart,
+//
+                    Event event = new Event(attendingCount, category, description,  eventSiteUrl,id, imageUrl, interestedCount,  isCanceled,  isFree,  isOfficial,  latitude,  longitude,  name,ticketsUrl, timeEnd, timeStart,
                    businessId);
                     events.add(event);
                 }

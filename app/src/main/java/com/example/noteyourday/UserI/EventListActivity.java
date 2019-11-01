@@ -41,8 +41,8 @@ public class EventListActivity extends AppCompatActivity {
     RecyclerView dairyRecyclerView;
     @BindView(R.id.listView)
     ListView eventLocation;
-    @BindView(R.id.eventProgressBar)
-    ProgressBar dairyProgressBar;
+//    @BindView(R.id.eventProgressBar)
+//    ProgressBar dairyProgressBar;
     @BindView(R.id.errorTextView)
     TextView eventErrorTextView;
     private EventListAdapter dayAdapter;//
@@ -64,6 +64,7 @@ public class EventListActivity extends AppCompatActivity {
         dayRecentAddress = daySharedPreferences.getString(DiaryConstants.PREFERENCES_LOCATION_KEY, null);
         if (dayRecentAddress != null) {
             getEvents(dayRecentAddress);
+
         }
     }
     @Override

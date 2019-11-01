@@ -8,5 +8,5 @@
     <color name="colorButton1">#990099</color>
     <color name="colorDivider">#FFACE1</color>
     <color name="colorTextIcons">#FF8F17</color>
-
+    <color name="colorText">#FFFFFF</color>
 </resources>

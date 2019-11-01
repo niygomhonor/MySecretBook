@@ -10,7 +10,7 @@ import org.parceler.Parcel;
 
 @Parcel
 public class Event {
-
+String index;
     @SerializedName("attending_count")
     @Expose
     private Integer attendingCount;
@@ -100,7 +100,7 @@ public class Event {
      * @param businessId
      * @param latitude
      */
-    public Event(Integer attendingCount, String category, double cost, double costMax, String description, String eventSiteUrl, String id, String imageUrl, Integer interestedCount, Boolean isCanceled, Boolean isFree, Boolean isOfficial, Double latitude, Double longitude, String name, String ticketsUrl, String timeEnd, String timeStart,  String businessId) {
+    public Event(Integer attendingCount,String category,  String description, String eventSiteUrl, String id, String imageUrl, Integer interestedCount, Boolean isCanceled, Boolean isFree, Boolean isOfficial, Double latitude, Double longitude, String name, String ticketsUrl, String timeEnd, String timeStart,  String businessId) {
         super();
         this.attendingCount = attendingCount;
         this.category = category;
@@ -119,7 +119,7 @@ public class Event {
         this.ticketsUrl = ticketsUrl;
         this.timeEnd = timeEnd;
         this.timeStart = timeStart;
-
+this.index="Not thre yet";
         this.businessId = businessId;
     }
 
@@ -287,4 +287,9 @@ public class Event {
         this.businessId = businessId;
     }
 
+    public void setIndex(String index) {
+    }
+    private  String getIndex(){
+        return  index;
+    }
 }
