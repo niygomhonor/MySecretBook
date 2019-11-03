@@ -29,6 +29,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:background="#ffffff"
+        android:gravity="center_vertical"
         android:layout_height="match_parent"
         android:padding="10dp">
 
@@ -61,16 +62,10 @@
             android:drawablePadding="100dp"
             android:textColor="@color/colorHeader"
             android:textSize="15sp"
-
             android:textStyle="italic"
             android:layout_marginBottom="10dp"
             android:gravity="center"/>
 
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

@@ -29,17 +29,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class SavedEventListActivity extends AppCompatActivity  {
-    private DatabaseReference dayEventReference;
-    private FirebaseRecyclerAdapter<Event, FirebaseEventViewHolder> dayFirebaseAdapter;
-    @BindView(R.id.recyclerView)
-    RecyclerView mRecyclerView;
-    private ItemTouchHelper dayItemTouchHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_save_event_list);
-//        ButterKnife.bind(this);
+        ButterKnife.bind(this);
 //
 //        setUpFirebaseAdapter();
 //    }

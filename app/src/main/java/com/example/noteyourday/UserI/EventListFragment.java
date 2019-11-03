@@ -25,6 +25,7 @@ import com.example.noteyourday.DiaryConstants;
 import com.example.noteyourday.R;
 import com.example.noteyourday.models.Event;
 import com.example.noteyourday.networks.YelpDayServices;
+import com.example.noteyourday.util.OnEventSelectedListener;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class EventListFragment extends Fragment {
     private SharedPreferences daySharedPreferences;
     private SharedPreferences.Editor dayEditor;
     private String dayRecentAddress;
-
+    private OnEventSelectedListener mOnEventSelectedListener;
     public EventListFragment() {
         // Required empty public constructor
     }
@@ -60,7 +61,15 @@ public class EventListFragment extends Fragment {
         // Instructs fragment to include menu options:
         setHasOptionsMenu(true);
     }
-
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            mOnEventSelectedListener = (OnEventSelectedListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + e.getMessage());
+        }
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -93,7 +102,7 @@ public class EventListFragment extends Fragment {
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        dayAdapter = new EventListAdapter(getActivity(), events);
+                        dayAdapter = new EventListAdapter(getActivity(), events,mOnEventSelectedListener);
                         dairyRecyclerView.setAdapter(dayAdapter);
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
                         dairyRecyclerView.setLayoutManager(layoutManager);

@@ -5,13 +5,13 @@
     android:orientation="horizontal"
     android:padding="20dp">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:padding="20dp"
-        android:visibility="gone" />
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/recyclerView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:padding="20dp"-->
+<!--        android:visibility="gone" />-->
 
     <ImageView
         android:id="@+id/eventImageView"
@@ -22,20 +22,21 @@
         android:src="@drawable/beaute" />
 
 
-    <ImageView
-        android:id="@+id/dragIcon"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignLeft="@id/restaurantImageView"
-        android:layout_alignBottom="@id/restaurantImageView"
-        android:gravity="bottom|left"
-        android:src="@drawable/ic_reorder_white_24dp" />
+<!--    <ImageView-->
+<!--        android:id="@+id/dragIcon"-->
+<!--        android:layout_width="30dp"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_alignLeft="@id/restaurantImageView"-->
+<!--        android:layout_alignBottom="@id/restaurantImageView"-->
+<!--        android:gravity="bottom|left"-->
+<!--        android:src="@drawable/ic_reorder_white_24dp" />-->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="172dp"
         android:background="#ffffff"
         android:orientation="vertical"
+        android:gravity="center_vertical"
         android:paddingTop="10dp">
 
         <TextView
@@ -45,6 +46,8 @@
             android:text="event  Name"
             android:textColor="@color/colorPrimary"
             android:textSize="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:textStyle="bold" />
 
         <TextView
@@ -72,19 +75,7 @@
             android:textSize="15sp"
             android:textStyle="italic" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-            <!--            <TextView-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:text="Rating"-->
-            <!--                android:id="@+id/ratingTextView"-->
-            <!--                android:layout_alignParentEnd="true"-->
-            <!--                android:layout_alignParentRight="true"-->
-            <!--                android:textColor="@color/colorAccent"/>-->
-        </RelativeLayout>
     </LinearLayout>
 
 </LinearLayout>

@@ -101,8 +101,6 @@ EventDetailsFragment eventDetailsFragment=new EventDetailsFragment();
         return  view;
     }
 
-
-
     @Override
     public void onClick(View v) {
 if(v==eventDescription){

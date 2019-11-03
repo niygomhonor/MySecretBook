@@ -2,6 +2,7 @@ package com.example.noteyourday.DayAdapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -9,9 +10,12 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.noteyourday.R;
 import com.example.noteyourday.UserI.EventDetailActivity;
+import com.example.noteyourday.UserI.EventDetailsFragment;
 import com.example.noteyourday.models.Event;
 import com.example.noteyourday.util.ItemTouchHelperAdapter;
 import com.example.noteyourday.util.OnStartDragListener;
@@ -33,6 +37,7 @@ public class FirebaseEventListAdapter extends FirebaseRecyclerAdapter<Event, Fir
     private OnStartDragListener dayOnStartDragListener;
     private Context dayContext;
     private ChildEventListener dayChildEventListener;
+    private int mOrientation;
     private ArrayList<Event>dayEvents = new ArrayList<>();
     public FirebaseEventListAdapter(FirebaseRecyclerOptions<Event> options,
                                     Query ref,
@@ -77,6 +82,11 @@ public class FirebaseEventListAdapter extends FirebaseRecyclerAdapter<Event, Fir
     @Override
     protected void onBindViewHolder( final FirebaseEventViewHolder eventViewHolder, int i, Event event) {
         eventViewHolder.bindEvent(event);
+        mOrientation = eventViewHolder.itemView.getResources().getConfiguration().orientation;
+        if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+            createDetailFragment(0);
+        }
+
         eventViewHolder.eventImageView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -89,15 +99,29 @@ public class FirebaseEventListAdapter extends FirebaseRecyclerAdapter<Event, Fir
         eventViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(dayContext, EventDetailActivity.class);
-                intent.putExtra("position", eventViewHolder.getAdapterPosition());
-                intent.putExtra("events", Parcels.wrap(dayEvents));
-                dayContext.startActivity(intent);
+                int itemPosition = eventViewHolder.getAdapterPosition();
+                if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    createDetailFragment(itemPosition);
+                } else {
+                    Intent intent = new Intent(dayContext, EventDetailActivity.class);
+                    intent.putExtra("position", eventViewHolder.getAdapterPosition());
+                    intent.putExtra("events", Parcels.wrap(dayEvents));
+                    dayContext.startActivity(intent);
+                }
             }
         });
 
     }
-
+    private void createDetailFragment(int position) {
+        // Creates new RestaurantDetailFragment with the given position:
+       EventDetailsFragment detailFragment = EventDetailsFragment.newInstance(dayEvents, position);
+        // Gathers necessary components to replace the FrameLayout in the layout with the RestaurantDetailFragment:
+        FragmentTransaction ft = ((FragmentActivity) dayContext).getSupportFragmentManager().beginTransaction();
+        //  Replaces the FrameLayout with the RestaurantDetailFragment:
+        ft.replace(R.id.restaurantDetailContainer, detailFragment);
+        // Commits these changes:
+        ft.commit();
+    }
     @Override
     public boolean onItemMove(int fromPosition, int toPosition) {
         Collections.swap(dayEvents, fromPosition, toPosition);
@@ -118,10 +142,16 @@ public class FirebaseEventListAdapter extends FirebaseRecyclerAdapter<Event, Fir
         getRef(position).removeValue();
     }
 
+    @Override
+    public void cleanup() {
+
+    }
+
     @NonNull
     @Override
     public FirebaseEventViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.event_list_item, parent, false);
         return new FirebaseEventViewHolder(view);
     }
+
 }

@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,6 +21,7 @@ import com.example.noteyourday.R;
 import com.example.noteyourday.UserI.EventDetailActivity;
 import com.example.noteyourday.UserI.EventDetailsFragment;
 import com.example.noteyourday.models.Event;
+import com.example.noteyourday.util.OnEventSelectedListener;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -34,16 +36,19 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
 
     private ArrayList<Event> dayEvents=new  ArrayList<>();
     private Context dayContext;
-
-    public EventListAdapter(Context context, ArrayList<Event> events) {
+    private static final int MAX_WIDTH = 200;
+    private static final int MAX_HEIGHT = 200;
+    private OnEventSelectedListener mOnEventSelectedListener;
+    public EventListAdapter(Context context, ArrayList<Event> events,OnEventSelectedListener dayOnEventSelectedListener) {
         dayEvents = events;
         dayContext = context;
+        mOnEventSelectedListener=dayOnEventSelectedListener;
     }
 
     @Override
     public EventListAdapter.EventViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.event_list_item, parent, false);
-        EventViewHolder viewHolder = new EventViewHolder(view);
+        EventViewHolder viewHolder = new EventViewHolder(view,dayEvents,mOnEventSelectedListener);
         return viewHolder;
     }
 
@@ -51,7 +56,10 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
     public void onBindViewHolder(EventListAdapter.EventViewHolder holder, int position) {
         holder.bindEvent(dayEvents.get(position));
     }
-
+//    @Override
+//    public Fragment getItem(int position) {
+//        return EventDetailsFragment.newInstance(dayEvents, position);
+//    }
 
     @Override
     public int getItemCount() {
@@ -71,7 +79,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
         TextView beginningTime;
         private Context dayContext;
 
-        public EventViewHolder(View itemView) {
+        public EventViewHolder(View itemView, ArrayList<Event> dayEvents, OnEventSelectedListener mOnEventSelectedListener) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             this.dayContext = itemView.getContext();
@@ -81,13 +89,15 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
                 createDetailFragment(0);
             }
         }
+
+
         private void createDetailFragment(int position) {
             // Creates new RestaurantDetailFragment with the given position:
             EventDetailsFragment detailFragment =EventDetailsFragment.newInstance(dayEvents, position);
             // Gathers necessary components to replace the FrameLayout in the layout with the RestaurantDetailFragment:
             FragmentTransaction ft = ((FragmentActivity) dayContext).getSupportFragmentManager().beginTransaction();
             //  Replaces the FrameLayout with the RestaurantDetailFragment:
-            ft.replace(R.id.restaurantDetailContainer, detailFragment);
+            ft.replace(R.id.eventDetailContainer, detailFragment);
             // Commits these changes:
             ft.commit();
         }
