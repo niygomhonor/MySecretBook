@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.noteyourday.DiaryConstants;
+import com.example.noteyourday.models.Event;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -37,6 +38,7 @@ public class DisplayYourDay extends AppCompatActivity {
     @BindView(R.id.searchButton)
     Button searchEventOfDay;
     @BindView(R.id.savedButton) Button savedEvent;
+    private Event dayEvent;
     private DatabaseReference mSearchedLocationReference;
     private TextView writeYourDayView;
 
@@ -87,6 +89,19 @@ public class DisplayYourDay extends AppCompatActivity {
         savedEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String uid = user.getUid();
+
+                DatabaseReference eventRef = FirebaseDatabase
+                        .getInstance()
+                        .getReference(DiaryConstants.FIREBASE_CHILD_DAY).child(uid);
+                DatabaseReference pushRef = eventRef.push();
+                String pushId = pushRef.getKey();
+//                dayEvent.setPushId(pushId);
+                pushRef.setValue(dayEvent);
+//              eventRef.push().setValue(dayEvent);
+                Toast.makeText(DisplayYourDay.this, "HAPPY DAY", Toast.LENGTH_SHORT).show();
+                System.out.println("Jesus love you");
                 Intent intent = new Intent(DisplayYourDay.this, SavedEventListActivity.class);
                 startActivity(intent);
             }

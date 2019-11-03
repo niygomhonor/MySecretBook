@@ -2,9 +2,12 @@ package com.example.noteyourday.UserI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -51,6 +54,8 @@ public class MyDiaryFeeling extends AppCompatActivity {
         feelView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                @SuppressLint("ResourceType") Animation animate= AnimationUtils.loadAnimation(MyDiaryFeeling.this,R.animator.anim_mixed);
+                feelView.startAnimation(animate);
                 String feelings = ((TextView) view).getText().toString();
 //                Toast.makeText(MyDiaryFeeling.this, feelings, Toast.LENGTH_LONG).show();
                 Intent dayFeel=new Intent(MyDiaryFeeling.this,MyDays.class);

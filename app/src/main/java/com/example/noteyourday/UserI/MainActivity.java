@@ -2,6 +2,7 @@ package com.example.noteyourday.UserI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -10,6 +11,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -89,6 +92,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
 
         if (v == startButton) {
+            @SuppressLint("ResourceType") Animation animate= AnimationUtils.loadAnimation(this,R.animator.fadein);
+            startButton.startAnimation(animate);
             Intent day = new Intent(MainActivity.this, MyDiaryFeeling.class);
 
 //            String myDay = day.getStringExtra("myDay");

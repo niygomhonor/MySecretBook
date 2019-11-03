@@ -3,11 +3,14 @@ package com.example.noteyourday.UserI.ui;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -69,6 +72,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //            finish();
         }
         if (view == mPasswordLoginButton) {
+            @SuppressLint("ResourceType") Animation animate= AnimationUtils.loadAnimation(this,R.animator.bounceit);
+            mPasswordLoginButton.startAnimation(animate);
             loginWithPassword();
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);

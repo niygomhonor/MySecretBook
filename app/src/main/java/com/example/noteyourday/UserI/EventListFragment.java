@@ -102,7 +102,7 @@ public class EventListFragment extends Fragment {
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        dayAdapter = new EventListAdapter(getActivity(), events,mOnEventSelectedListener);
+                        dayAdapter = new EventListAdapter(getActivity(), events);
                         dairyRecyclerView.setAdapter(dayAdapter);
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
                         dairyRecyclerView.setLayoutManager(layoutManager);
