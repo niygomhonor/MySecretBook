@@ -21,6 +21,7 @@ import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
 
 import org.parceler.Parcels;
 
@@ -34,7 +35,7 @@ public class FirebaseEventListAdapter extends FirebaseRecyclerAdapter<Event, Fir
     private ChildEventListener dayChildEventListener;
     private ArrayList<Event>dayEvents = new ArrayList<>();
     public FirebaseEventListAdapter(FirebaseRecyclerOptions<Event> options,
-                                    DatabaseReference ref,
+                                    Query ref,
                                     OnStartDragListener onStartDragListener,
                                     Context context){
         super(options);
@@ -120,7 +121,7 @@ public class FirebaseEventListAdapter extends FirebaseRecyclerAdapter<Event, Fir
     @NonNull
     @Override
     public FirebaseEventViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.event_list_item_drag, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.event_list_item, parent, false);
         return new FirebaseEventViewHolder(view);
     }
 }

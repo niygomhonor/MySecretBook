@@ -118,7 +118,7 @@
                 android:layout_marginLeft="130dp"
                 android:id="@+id/saveDayEventButton"
                 android:layout_alignParentBottom="true"
-                android:background="@color/colorAccent"
+                android:background="@drawable/roundingbutton"
                 android:textColor="@color/colorHeader"
                 android:textSize="15sp" />
         </RelativeLayout>

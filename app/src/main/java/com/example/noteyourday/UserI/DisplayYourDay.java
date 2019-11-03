@@ -36,6 +36,7 @@ public class DisplayYourDay extends AppCompatActivity {
     TextView displayYourDay;
     @BindView(R.id.searchButton)
     Button searchEventOfDay;
+    @BindView(R.id.savedButton) Button savedEvent;
     private DatabaseReference mSearchedLocationReference;
     private TextView writeYourDayView;
 
@@ -79,6 +80,14 @@ public class DisplayYourDay extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DisplayYourDay.this, EventListActivity.class);
+                startActivity(intent);
+            }
+
+        });
+        savedEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DisplayYourDay.this, SavedEventListActivity.class);
                 startActivity(intent);
             }
         });

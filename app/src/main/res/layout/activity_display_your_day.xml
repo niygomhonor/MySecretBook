@@ -7,14 +7,13 @@
     tools:context=".UserI.DisplayYourDay">
 
 
-
-
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:id="@+id/imageView"
-        android:src="@drawable/dis"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        android:src="@drawable/dis" />
+
     <TextView
         android:id="@+id/displayDayHeader"
         android:layout_width="wrap_content"
@@ -69,30 +68,41 @@
 <!--        android:layout_marginBottom="20dp"-->
 <!--        android:hint="Search location and your interesting event"-->
 <!--        android:padding="30dp" />-->
+
+
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="500dp"
+        android:layout_below="@+id/displayDayHeader"
+        android:layout_marginTop="489dp"
+        android:paddingLeft="60dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="Find your day events to attend!"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
-        android:text="Find your day events to attend!"
-        android:layout_below="@+id/displayDayHeader"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:textStyle="bold"
-        android:fontFamily="sans-serif-condensed-light"/>
-
-
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/searchButton"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="70dp"
-        android:background="@color/colorButton"
+        android:layout_marginLeft="70dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/roundingbutton"
         android:text="Search" />
+
+    <Button
+
+        android:id="@+id/savedButton"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+      android:layout_marginLeft="250dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/roundingbutton"
+        android:text="Past Events" />
 
 
 </RelativeLayout>

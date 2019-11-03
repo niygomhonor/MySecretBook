@@ -46,7 +46,7 @@ public class YelpDayServices {
                     String name = eventJSON.getString("name");
                    int attendingCount = eventJSON.getInt("attending_count");
                    String category = eventJSON.getString("category");
-                    String imageUrl = eventJSON.getString("image_url");
+                  String imageUrl = eventJSON.getString("image_url");
                     double latitude = eventJSON.getDouble("latitude");
                     double longitude = eventJSON.getDouble("longitude");
                     String description=eventJSON.getString("description");

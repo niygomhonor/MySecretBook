@@ -1,11 +1,15 @@
 package com.example.noteyourday.DayAdapters;
 
 
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,70 +17,67 @@ import com.example.noteyourday.DiaryConstants;
 import com.example.noteyourday.R;
 import com.example.noteyourday.UserI.EventDetailActivity;
 import com.example.noteyourday.models.Event;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.example.noteyourday.util.ItemTouchHelperAdapter;
+import com.example.noteyourday.util.ItemTouchHelperViewHolder;
+
 import com.squareup.picasso.Picasso;
 
-import org.parceler.Parcels;
 
-import java.util.ArrayList;
-
-public class FirebaseEventViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class FirebaseEventViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder {
     View mView;
     Context mContext;
 
-    public  ImageView eventImageView ;
-
+    public ImageView eventImageView;
+    private static final int MAX_WIDTH = 200;
+    private static final int MAX_HEIGHT = 200;
     public FirebaseEventViewHolder(View itemView) {
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
-        itemView.setOnClickListener(this);
+//        itemView.setOnClickListener(this);
     }
 
     public void bindEvent(Event event) {
-        eventImageView=(ImageView) mView.findViewById(R.id.eventImageView);
-        TextView nameTextView = (TextView) mView.findViewById(R.id.eventNameTextView);
-        TextView startTime=(TextView) mView.findViewById(R.id.timeTextView) ;
-        TextView descOfEvent=(TextView) mView.findViewById(R.id.descTextView) ;
-        Picasso.get().load(event.getImageUrl()).into(eventImageView);
-        nameTextView.setText(event.getName());
-        startTime.setText(event.getTimeStart());
-        descOfEvent.setText(event.getDescription());
+        eventImageView = mView.findViewById(R.id.eventImageView);
+        TextView nameTextView = mView.findViewById(R.id.eventNameTextView);
+        TextView startTime = mView.findViewById(R.id.timeTextView);
+        TextView descOfEvent = mView.findViewById(R.id.descTextView);
 
+
+        nameTextView.setText(event.getName());
+//        startTime.setText(event.getTimeStart());
+//        descOfEvent.setText(event.getDescription());
+        Picasso.get().load(event.getImageUrl()).into(eventImageView);
+        Toast.makeText(mContext, "Hey" + eventImageView, Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void onClick(View v) {
-        final ArrayList<Event> events = new ArrayList<>();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
-
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(DiaryConstants.FIREBASE_CHILD_EVENTS).child(uid);
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    events.add(snapshot.getValue(Event.class));
-                }
-
-                int itemPosition = getLayoutPosition();
-
-                Intent intent = new Intent(mContext, EventDetailActivity.class);
-                intent.putExtra("position", itemPosition + "");
-                intent.putExtra("events", Parcels.wrap(events));
-
-                mContext.startActivity(intent);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
+    public void onItemSelected() {
+        Log.d("Animation", "onItemSelected");
+//        itemView.animate()
+//                .alpha(0.7f)
+//                .scaleX(0.9f)
+//                .scaleY(0.9f)
+//                .setDuration(500);
+        // we will add animations here
+        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(mContext,
+                R.animator.drag_scale_on);
+        set.setTarget(itemView);
+        set.start();
     }
+
+    @Override
+    public void onItemClear() {
+        Log.d("Animation", "onItemClear");
+//        itemView.animate()
+//                .alpha(1f)
+//                .scaleX(1f)
+//                .scaleY(1f);
+//        // we will add animations here
+        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(mContext,
+                R.animator.drag_scale_off);
+        set.setTarget(itemView);
+        set.start();
+    }
+
 }

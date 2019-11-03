@@ -3,103 +3,56 @@ package com.example.noteyourday.models;
 
 
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+
 
 import org.parceler.Parcel;
 
 @Parcel
 public class Event {
 String index;
-    @SerializedName("attending_count")
-    @Expose
+
     private Integer attendingCount;
-    @SerializedName("category")
-    @Expose
+
     private String category;
-    @SerializedName("cost")
-    @Expose
+
     private double cost;
-    @SerializedName("cost_max")
-    @Expose
+
     private double costMax;
-    @SerializedName("description")
-    @Expose
+
     private String description;
-    @SerializedName("event_site_url")
-    @Expose
+
     private String eventSiteUrl;
-    @SerializedName("id")
-    @Expose
+
     private String id;
-    @SerializedName("image_url")
-    @Expose
+
     private String imageUrl;
-    @SerializedName("interested_count")
-    @Expose
+
     private Integer interestedCount;
-    @SerializedName("is_canceled")
-    @Expose
+
     private Boolean isCanceled;
-    @SerializedName("is_free")
-    @Expose
+
     private Boolean isFree;
-    @SerializedName("is_official")
-    @Expose
+
     private Boolean isOfficial;
-    @SerializedName("latitude")
-    @Expose
+
     private Double latitude;
-    @SerializedName("longitude")
-    @Expose
+
     private Double longitude;
-    @SerializedName("name")
-    @Expose
+
     private String name;
-    @SerializedName("tickets_url")
-    @Expose
+
     private String ticketsUrl;
-    @SerializedName("time_end")
-    @Expose
+
     private String timeEnd;
-    @SerializedName("time_start")
-    @Expose
+
     private String timeStart;
 
-    @SerializedName("business_id")
-    @Expose
+
     private String businessId;
     private String pushId;
-    /**
-     * No args constructor for use in serialization
-     * 
-     */
+
     public Event() {
     }
-
-    /**
-     * 
-     * @param eventSiteUrl
-     * @param isCanceled
-     * @param ticketsUrl
-
-     * @param imageUrl
-     * @param costMax
-     * @param isOfficial
-     * @param attendingCount
-     * @param cost
-     * @param id
-     * @param interestedCount
-     * @param category
-     * @param timeStart
-     * @param timeEnd
-     * @param isFree
-     * @param description
-     * @param name
-     * @param longitude
-     * @param businessId
-     * @param latitude
-     */
     public Event(Integer attendingCount,String category,  String description, String eventSiteUrl, String id, String imageUrl, Integer interestedCount, Boolean isCanceled, Boolean isFree, Boolean isOfficial, Double latitude, Double longitude, String name, String ticketsUrl, String timeEnd, String timeStart,  String businessId) {
         super();
         this.attendingCount = attendingCount;
@@ -119,7 +72,7 @@ String index;
         this.ticketsUrl = ticketsUrl;
         this.timeEnd = timeEnd;
         this.timeStart = timeStart;
-this.index="Not thre yet";
+        this.index="Not there yet";
         this.businessId = businessId;
     }
 
@@ -288,6 +241,7 @@ this.index="Not thre yet";
     }
 
     public void setIndex(String index) {
+        this.index=index;
     }
     private  String getIndex(){
         return  index;

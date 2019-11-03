@@ -28,6 +28,8 @@ import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -43,7 +45,8 @@ public class EventDetailsFragment extends Fragment implements View.OnClickListen
 @BindView(R.id.eventNameTextView) TextView eventName;
 
 private Event dayEvent;
-
+    private ArrayList<Event> dayEvents;
+    private int dayPosition;
     public EventDetailsFragment() {
         // Required empty public constructor
     }
@@ -58,10 +61,25 @@ private Event dayEvent;
         return eventDetailsFragment;
     }
 
+    public static EventDetailsFragment newInstance(ArrayList<Event> events, Integer position) {
+
+EventDetailsFragment eventDetailsFragment=new EventDetailsFragment();
+        Bundle args = new Bundle();
+
+        args.putParcelable(DiaryConstants.EXTRA_KEY_EVENTS, Parcels.wrap(events));
+        args.putInt(DiaryConstants.EXTRA_KEY_POSITION, position);
+
+        eventDetailsFragment.setArguments(args);
+        return eventDetailsFragment;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    dayEvent=Parcels.unwrap(getArguments().getParcelable("event"));
+    dayEvent=Parcels.unwrap(getArguments().getParcelable(DiaryConstants.EXTRA_KEY_EVENTS));
+    dayPosition=getArguments().getInt(DiaryConstants.EXTRA_KEY_POSITION);
+    dayEvent=dayEvents.get(dayPosition);
+
 
         }
 

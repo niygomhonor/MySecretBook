@@ -10,6 +10,7 @@ import com.example.noteyourday.models.Event;
 
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -18,7 +19,7 @@ import butterknife.ButterKnife;
 public class EventDetailActivity extends AppCompatActivity {
     @BindView(R.id.viewPager) ViewPager eventViewPager;
     private DairyPagerAdapter adapterViewPager;
-    List<Event> dayEvents;
+    ArrayList<Event> dayEvents=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

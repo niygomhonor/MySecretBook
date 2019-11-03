@@ -22,7 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UserI.EventListActivity" >
+        <activity android:name=".UserI.EventListActivity"
+            android:label="Current Events">
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -30,12 +31,12 @@
         </activity>
         <activity android:name=".UserI.SavedEventListActivity" />
         <activity android:name=".UserI.EventDetailActivity" />
-        <activity android:name=".UserI.EventApiThings"
-            android:label="@string/currentEvents">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.noteyourday.UserI.EventApiThings" />
-        </activity>
+<!--        <activity android:name=".UserI.EventApiThings"-->
+<!--            android:label="@string/currentEvents">-->
+<!--            <meta-data-->
+<!--                android:name="android.support.PARENT_ACTIVITY"-->
+<!--                android:value="com.example.noteyourday.UserI.EventApiThings" />-->
+<!--        </activity>-->
         <activity android:name=".UserI.DisplayYourDay"
             android:label="@string/myDay">
             <meta-data
