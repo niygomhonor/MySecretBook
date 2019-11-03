@@ -82,10 +82,7 @@ public class FirebaseEventListAdapter extends FirebaseRecyclerAdapter<Event, Fir
     @Override
     protected void onBindViewHolder( final FirebaseEventViewHolder eventViewHolder, int i, Event event) {
         eventViewHolder.bindEvent(event);
-        mOrientation = eventViewHolder.itemView.getResources().getConfiguration().orientation;
-        if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
-            createDetailFragment(0);
-        }
+
 
         eventViewHolder.eventImageView.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -99,29 +96,16 @@ public class FirebaseEventListAdapter extends FirebaseRecyclerAdapter<Event, Fir
         eventViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int itemPosition = eventViewHolder.getAdapterPosition();
-                if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
-                    createDetailFragment(itemPosition);
-                } else {
                     Intent intent = new Intent(dayContext, EventDetailActivity.class);
                     intent.putExtra("position", eventViewHolder.getAdapterPosition());
                     intent.putExtra("events", Parcels.wrap(dayEvents));
                     dayContext.startActivity(intent);
                 }
-            }
+
         });
 
     }
-    private void createDetailFragment(int position) {
-        // Creates new RestaurantDetailFragment with the given position:
-       EventDetailsFragment detailFragment = EventDetailsFragment.newInstance(dayEvents, position);
-        // Gathers necessary components to replace the FrameLayout in the layout with the RestaurantDetailFragment:
-        FragmentTransaction ft = ((FragmentActivity) dayContext).getSupportFragmentManager().beginTransaction();
-        //  Replaces the FrameLayout with the RestaurantDetailFragment:
-        ft.replace(R.id.restaurantDetailContainer, detailFragment);
-        // Commits these changes:
-        ft.commit();
-    }
+
     @Override
     public boolean onItemMove(int fromPosition, int toPosition) {
         Collections.swap(dayEvents, fromPosition, toPosition);
@@ -134,7 +118,7 @@ public class FirebaseEventListAdapter extends FirebaseRecyclerAdapter<Event, Fir
             int index = dayEvents.indexOf(event);
             DatabaseReference mReference = getRef(index);
             event.setIndex(Integer.toString(index));
-            mReference.setValue(event);
+            mReference.child("index").setValue(Integer.toString(index));
         }
     }
     @Override
@@ -146,7 +130,6 @@ public class FirebaseEventListAdapter extends FirebaseRecyclerAdapter<Event, Fir
     public void cleanup() {
 
     }
-
     @NonNull
     @Override
     public FirebaseEventViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

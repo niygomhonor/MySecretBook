@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.noteyourday.DiaryConstants;
 import com.example.noteyourday.R;
 
 //import com.example.noteyourday.UserI.EventApiThings;
@@ -34,16 +35,20 @@ import butterknife.ButterKnife;
 
 public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.EventViewHolder> {
 
+
+
     private ArrayList<Event> dayEvents=new  ArrayList<>();
     private Context dayContext;
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
     private OnEventSelectedListener mOnEventSelectedListener;
-    public EventListAdapter(Context context, ArrayList<Event> events,OnEventSelectedListener dayOnEventSelectedListener) {
+    public EventListAdapter(Context context, ArrayList<Event> events) {
         dayEvents = events;
         dayContext = context;
-        mOnEventSelectedListener=dayOnEventSelectedListener;
+
     }
+
+
 
     @Override
     public EventListAdapter.EventViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -79,28 +84,18 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
         TextView beginningTime;
         private Context dayContext;
 
-        public EventViewHolder(View itemView, ArrayList<Event> dayEvents, OnEventSelectedListener mOnEventSelectedListener) {
+        public EventViewHolder(View itemView, ArrayList<Event>events, OnEventSelectedListener eventSelectedListener) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-            this.dayContext = itemView.getContext();
-            itemView.setOnClickListener(this);
+            dayContext = itemView.getContext();
+            dayEvents=events;
             dayOrientation = itemView.getResources().getConfiguration().orientation;
-            if (dayOrientation == Configuration.ORIENTATION_LANDSCAPE) {
-                createDetailFragment(0);
-            }
+
+            itemView.setOnClickListener(this);
         }
 
 
-        private void createDetailFragment(int position) {
-            // Creates new RestaurantDetailFragment with the given position:
-            EventDetailsFragment detailFragment =EventDetailsFragment.newInstance(dayEvents, position);
-            // Gathers necessary components to replace the FrameLayout in the layout with the RestaurantDetailFragment:
-            FragmentTransaction ft = ((FragmentActivity) dayContext).getSupportFragmentManager().beginTransaction();
-            //  Replaces the FrameLayout with the RestaurantDetailFragment:
-            ft.replace(R.id.eventDetailContainer, detailFragment);
-            // Commits these changes:
-            ft.commit();
-        }
+
 
         public void bindEvent(Event event) {
             eventName.setText(event.getName());
@@ -113,15 +108,11 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
         @Override
         public void onClick(View v) {
             int itemPosition = getLayoutPosition();
-            if (dayOrientation == Configuration.ORIENTATION_LANDSCAPE) {
-                createDetailFragment(itemPosition);
-            }
-            else {
+
                 Intent intent = new Intent(dayContext, EventDetailActivity.class);
-                intent.putExtra("position", itemPosition);
-                intent.putExtra("events", Parcels.wrap(dayEvents));
+                intent.putExtra(DiaryConstants.EXTRA_KEY_POSITION, itemPosition);
+                intent.putExtra(DiaryConstants.EXTRA_KEY_EVENTS, Parcels.wrap(dayEvents));
                 dayContext.startActivity(intent);
             }
         }
     }
-}

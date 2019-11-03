@@ -5,6 +5,9 @@ import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -21,6 +24,8 @@ import com.example.noteyourday.util.ItemTouchHelperAdapter;
 import com.example.noteyourday.util.ItemTouchHelperViewHolder;
 
 import com.squareup.picasso.Picasso;
+
+import java.io.IOException;
 
 
 public class FirebaseEventViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder {
@@ -43,12 +48,23 @@ public class FirebaseEventViewHolder extends RecyclerView.ViewHolder implements 
         TextView startTime = mView.findViewById(R.id.timeTextView);
         TextView descOfEvent = mView.findViewById(R.id.descTextView);
 
+        if (!event.getImageUrl().contains("http")) {
+            Bitmap imageBitmap = decodeFromFirebaseBase64(event.getImageUrl());
+            eventImageView.setImageBitmap(imageBitmap);
+        } else {
+            Picasso.get().load(event.getImageUrl()).into(eventImageView);
 
+        }
         nameTextView.setText(event.getName());
 //        startTime.setText(event.getTimeStart());
 //        descOfEvent.setText(event.getDescription());
-        Picasso.get().load(event.getImageUrl()).into(eventImageView);
-        Toast.makeText(mContext, "Hey" + eventImageView, Toast.LENGTH_SHORT).show();
+
+
+    }
+
+    private Bitmap decodeFromFirebaseBase64(String imageUrl) {
+        byte[] decodedByteArray = android.util.Base64.decode(imageUrl, Base64.DEFAULT);
+        return BitmapFactory.decodeByteArray(decodedByteArray, 0, decodedByteArray.length);
     }
 
     @Override
